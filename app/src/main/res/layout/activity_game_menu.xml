@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/universe"
+    tools:context=".GameMenu"
+    tools:layout_editor_absoluteY="25dp">
+
+    <Button
+        android:id="@+id/bVsLocal"
+        android:layout_width="384dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="14dp"
+        android:background="@android:color/transparent"
+        android:text="Local Play"
+        android:textColor="@android:color/background_light"
+        app:fontFamily="@font/verdana"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bVsOnline"
+
+        tools:layout_editor_absoluteY="310dp" />
+
+    <Button
+        android:id="@+id/bVsOnline"
+        android:layout_width="384dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="14dp"
+        android:background="@android:color/transparent"
+        android:text="Online Play"
+        android:textColor="@android:color/background_light"
+        app:fontFamily="@font/verdana"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteY="398dp" />
+
+    <Button
+        android:id="@+id/bEasy"
+        android:layout_width="384dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="14dp"
+        android:background="@android:color/transparent"
+        android:text="vs AI"
+        android:textColor="@android:color/background_light"
+        app:fontFamily="@font/verdana"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bVsLocal"
+        tools:layout_editor_absoluteY="218dp" />
+
+    <TextView
+        android:id="@+id/tvPazaak"
+        android:layout_width="384dp"
+        android:layout_height="191dp"
+        android:gravity="center"
+        android:text="@string/pazaak"
+        android:textColor="@android:color/background_light"
+        android:textSize="48sp"
+        app:fontFamily="@font/verdana"
+        tools:layout_editor_absoluteY="27dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bEasy"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Pazaak" />
+</android.support.constraint.ConstraintLayout>
