@@ -1,6 +1,7 @@
 package com.pazaak.prototype.pazaakprototype;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,10 +13,11 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-        final Button toGameMenu = (Button) findViewById(R.id.bStartGame);
-        final Button toDeckBuilder = (Button) findViewById(R.id.bDeckBuilder);
-        final Button toTutorial = (Button) findViewById(R.id.bStartTutorial);
+        final Button toGameMenu = findViewById(R.id.bStartGame);
+        final Button toDeckBuilder = findViewById(R.id.bDeckBuilder);
+        final Button toTutorial = findViewById(R.id.bStartTutorial);
 
         toGameMenu.setOnClickListener(new View.OnClickListener() {
             @Override
