@@ -8,18 +8,24 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainMenu">
+        android:theme="@style/AppTheme"
+        android:fullBackupContent="true">
+        <activity android:name=".MainMenu"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GameMenu" />
-        <activity android:name=".DeckBuilder" />
-        <activity android:name=".TutorialMenu" />
-        <activity android:name=".SetAIDifficulty"></activity>
+        <activity android:name=".GameMenu"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".DeckBuilder"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".TutorialMenu"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".SetAIDifficulty"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>
