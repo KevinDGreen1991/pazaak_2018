@@ -2,4 +2,5 @@
     <string name="app_name">PazaakPrototype</string>
     <string name="pazaak">Pazaak</string>
     <string name="cardLayout">Card layout</string>
+    <string name="deckCount">deckCount</string>
 </resources>
