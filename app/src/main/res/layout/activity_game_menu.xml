@@ -17,11 +17,11 @@
         android:text="Local Play"
         android:textColor="@android:color/background_light"
         app:fontFamily="@font/verdana"
+        app:layout_constraintBottom_toTopOf="@+id/bVsOnline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/bVsOnline"
 
-        tools:layout_editor_absoluteY="310dp" />
+        />
 
     <Button
         android:id="@+id/bVsOnline"
@@ -32,9 +32,9 @@
         android:text="Online Play"
         android:textColor="@android:color/background_light"
         app:fontFamily="@font/verdana"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteY="398dp" />
 
     <Button
@@ -46,9 +46,9 @@
         android:text="vs AI"
         android:textColor="@android:color/background_light"
         app:fontFamily="@font/verdana"
+        app:layout_constraintBottom_toTopOf="@+id/bVsLocal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/bVsLocal"
         tools:layout_editor_absoluteY="218dp" />
 
     <TextView
@@ -60,10 +60,10 @@
         android:textColor="@android:color/background_light"
         android:textSize="48sp"
         app:fontFamily="@font/verdana"
-        tools:layout_editor_absoluteY="27dp"
+        app:layout_constraintBottom_toTopOf="@+id/bEasy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/bEasy"
         app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="27dp"
         tools:text="Pazaak" />
 </android.support.constraint.ConstraintLayout>

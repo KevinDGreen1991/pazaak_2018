@@ -12,13 +12,16 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-public class DeckBuilder extends AppCompatActivity {
+public class DeckBuilder extends AppCompatActivity
+{
     public int count = 0;
-    public String test = count+"/10";
+    public String test = count + "/10";
     public boolean checked[] = new boolean[18];
+
     //TextView deckCount = findViewById(R.id.deckCount);
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deck_builder);
         final TextView deckCount = findViewById(R.id.deckCount);
@@ -44,309 +47,347 @@ public class DeckBuilder extends AppCompatActivity {
         //String test = count+"/10";
         deckCount.setText(test);
 
-        plus1.setOnClickListener(new CheckBox.OnClickListener() {
+        plus1.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(plus1.isChecked())
+            public void onClick(View view)
+            {
+                if (plus1.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
                 }
                 deckCount.setText(test);
             }
         });
 
-        plus2.setOnClickListener(new CheckBox.OnClickListener() {
+        plus2.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(plus2.isChecked())
+            public void onClick(View view)
+            {
+                if (plus2.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
                 }
                 deckCount.setText(test);
             }
         });
 
-        plus3.setOnClickListener(new CheckBox.OnClickListener() {
+        plus3.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(plus3.isChecked())
+            public void onClick(View view)
+            {
+                if (plus3.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
-                    count--;
-                    test = count+"/10";
-
-                }
-                deckCount.setText(test);
-            }
-        });
-
-        plus4.setOnClickListener(new CheckBox.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(plus4.isChecked())
+                    test = count + "/10";
+                } else
                 {
-                    count++;
-                    test = count+"/10";
-                }
-                else {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
 
                 }
                 deckCount.setText(test);
             }
         });
 
-        plus5.setOnClickListener(new CheckBox.OnClickListener() {
+        plus4.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(plus5.isChecked())
+            public void onClick(View view)
+            {
+                if (plus4.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
 
                 }
                 deckCount.setText(test);
             }
         });
 
-        plus6.setOnClickListener(new CheckBox.OnClickListener() {
+        plus5.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(plus6.isChecked())
+            public void onClick(View view)
+            {
+                if (plus5.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
 
                 }
                 deckCount.setText(test);
             }
         });
 
-        minus1.setOnClickListener(new CheckBox.OnClickListener() {
+        plus6.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(minus1.isChecked())
+            public void onClick(View view)
+            {
+                if (plus6.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
 
                 }
                 deckCount.setText(test);
             }
         });
 
-        minus2.setOnClickListener(new CheckBox.OnClickListener() {
+        minus1.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(minus2.isChecked())
+            public void onClick(View view)
+            {
+                if (minus1.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
 
                 }
                 deckCount.setText(test);
             }
         });
 
-        minus3.setOnClickListener(new CheckBox.OnClickListener() {
+        minus2.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(minus3.isChecked())
+            public void onClick(View view)
+            {
+                if (minus2.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
-                    count--;
-                    test = count+"/10";
-
-                }
-                deckCount.setText(test);
-            }
-        });
-        minus4.setOnClickListener(new CheckBox.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(minus4.isChecked())
+                    test = count + "/10";
+                } else
                 {
-                    count++;
-                    test = count+"/10";
-                }
-                else {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
 
                 }
                 deckCount.setText(test);
             }
         });
 
-        minus5.setOnClickListener(new CheckBox.OnClickListener() {
+        minus3.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(minus5.isChecked())
+            public void onClick(View view)
+            {
+                if (minus3.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
+
+                }
+                deckCount.setText(test);
+            }
+        });
+        minus4.setOnClickListener(new CheckBox.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if (minus4.isChecked())
+                {
+                    count++;
+                    test = count + "/10";
+                } else
+                {
+                    count--;
+                    test = count + "/10";
 
                 }
                 deckCount.setText(test);
             }
         });
 
-        minus6.setOnClickListener(new CheckBox.OnClickListener() {
+        minus5.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(minus6.isChecked())
+            public void onClick(View view)
+            {
+                if (minus5.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
 
                 }
                 deckCount.setText(test);
             }
         });
 
-        pm1.setOnClickListener(new CheckBox.OnClickListener() {
+        minus6.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(pm1.isChecked())
+            public void onClick(View view)
+            {
+                if (minus6.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
 
                 }
                 deckCount.setText(test);
             }
         });
 
-        pm2.setOnClickListener(new CheckBox.OnClickListener() {
+        pm1.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(pm2.isChecked())
+            public void onClick(View view)
+            {
+                if (pm1.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
 
                 }
                 deckCount.setText(test);
             }
         });
 
-        pm3.setOnClickListener(new CheckBox.OnClickListener() {
+        pm2.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(pm3.isChecked())
+            public void onClick(View view)
+            {
+                if (pm2.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
 
                 }
                 deckCount.setText(test);
             }
         });
 
-        pm4.setOnClickListener(new CheckBox.OnClickListener() {
+        pm3.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(pm4.isChecked())
+            public void onClick(View view)
+            {
+                if (pm3.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
 
                 }
                 deckCount.setText(test);
             }
         });
 
-        pm5.setOnClickListener(new CheckBox.OnClickListener() {
+        pm4.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(pm5.isChecked())
+            public void onClick(View view)
+            {
+                if (pm4.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
 
                 }
                 deckCount.setText(test);
             }
         });
 
-        pm6.setOnClickListener(new CheckBox.OnClickListener() {
+        pm5.setOnClickListener(new CheckBox.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                if(pm6.isChecked())
+            public void onClick(View view)
+            {
+                if (pm5.isChecked())
                 {
                     count++;
-                    test = count+"/10";
-                }
-                else {
+                    test = count + "/10";
+                } else
+                {
                     count--;
-                    test = count+"/10";
+                    test = count + "/10";
+
                 }
                 deckCount.setText(test);
             }
         });
-}
-    protected void TEST(){
+
+        pm6.setOnClickListener(new CheckBox.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                if (pm6.isChecked())
+                {
+                    count++;
+                    test = count + "/10";
+                } else
+                {
+                    count--;
+                    test = count + "/10";
+                }
+                deckCount.setText(test);
+            }
+        });
+    }
+
+    protected void TEST()
+    {
         //FOR TESTING PURPOSES ONLY
 
     }
