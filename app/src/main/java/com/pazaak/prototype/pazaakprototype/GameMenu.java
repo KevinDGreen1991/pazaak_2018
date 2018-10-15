@@ -34,7 +34,7 @@ public class GameMenu extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent goingTo = new Intent(GameMenu.this, Game.class);
+                Intent goingTo = new Intent(GameMenu.this, Table.class);
                 GameMenu.this.startActivity(goingTo);
             }
         });
