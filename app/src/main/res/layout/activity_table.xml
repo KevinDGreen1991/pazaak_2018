@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Table"
+    android:background="@drawable/gradient">
+
+
+    <ImageView
+        android:id="@+id/p1Slot0"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/empty"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/p1Slot1"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/empty"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/p1Slot2"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/empty"
+        tools:layout_editor_absoluteX="200dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/p1Slot3"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/empty"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="101dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/p1Slot4"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/empty"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="101dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/p1Slot5"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/empty"
+        tools:layout_editor_absoluteX="200dp"
+        tools:layout_editor_absoluteY="101dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/p1Slot6"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/empty"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="186dp" />
+
+    <ImageView
+        android:id="@+id/p1Slot7"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/empty"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="186dp" />
+
+    <ImageView
+        android:id="@+id/p1Slot8"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/empty"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="200dp"
+        tools:layout_editor_absoluteY="186dp" />
+
+</android.support.constraint.ConstraintLayout>

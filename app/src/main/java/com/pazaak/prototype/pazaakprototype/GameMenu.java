@@ -27,16 +27,6 @@ public class GameMenu extends AppCompatActivity
             }
         });
 
-        final Button toGame = (Button) findViewById(R.id.bMedium);
 
-        toGame.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent goingTo = new Intent(GameMenu.this, Table.class);
-                GameMenu.this.startActivity(goingTo);
-            }
-        });
     }
 }

@@ -26,6 +26,8 @@
             android:screenOrientation="landscape"/>
         <activity android:name=".SetAIDifficulty"
             android:screenOrientation="landscape"/>
+        <activity android:name=".Table"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>
