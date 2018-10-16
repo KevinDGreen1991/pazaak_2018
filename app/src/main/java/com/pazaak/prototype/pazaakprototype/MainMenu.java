@@ -9,10 +9,12 @@ import android.widget.Button;
 
 public class MainMenu extends AppCompatActivity
 {
-
+    public boolean cards[] = new boolean[18]; //KEVIN Testing
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        for(int i = 0; i < 18; i++){
+            cards[i] = false;} //KEVIN testing
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -45,6 +47,7 @@ public class MainMenu extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent iDeckBuilder = new Intent(MainMenu.this, DeckBuilder.class);
+                iDeckBuilder.putExtra("test", cards); //KEVIN testing
                 MainMenu.this.startActivity(iDeckBuilder);
             }
         });
