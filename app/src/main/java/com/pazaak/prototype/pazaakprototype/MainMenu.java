@@ -6,15 +6,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.app.Activity;
 
 public class MainMenu extends AppCompatActivity
 {
-    public boolean cards[] = new boolean[18]; //KEVIN Testing
+    public boolean cards[];// = new boolean[18]; //KEVIN Testing
+    private static final int DECK_BUILDER = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        for(int i = 0; i < 18; i++){
-            cards[i] = false;} //KEVIN testing
+        if(cards == null) {
+            cards = new boolean[18];
+            for (int i = 0; i < 18; i++) {
+                cards[i] = false;
+            }
+        }//KEVIN testing
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -47,10 +54,23 @@ public class MainMenu extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent iDeckBuilder = new Intent(MainMenu.this, DeckBuilder.class);
-                iDeckBuilder.putExtra("test", cards); //KEVIN testing
-                MainMenu.this.startActivity(iDeckBuilder);
+                iDeckBuilder.putExtra("cards", cards); //KEVIN testing
+                /*MainMenu.this.startActivity(iDeckBuilder);
+                cards = iDeckBuilder.getBooleanArrayExtra("cards");*/
+                MainMenu.this.startActivityForResult(iDeckBuilder, DECK_BUILDER);
+                //startActivityForResult(new Intent(Intent));
             }
         });
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == DECK_BUILDER && resultCode == Activity.RESULT_OK)
+        {
+            boolean temp[] = data.getBooleanArrayExtra("cards");
+            /*for(int i = 0; i < 18; i++)
+                cards[i] = temp[i];*/
+            System.arraycopy(temp, 0, cards, 0, 18);
+        }
     }
 }

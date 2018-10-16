@@ -1,5 +1,6 @@
 package com.pazaak.prototype.pazaakprototype;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 public class DeckBuilder extends AppCompatActivity
 {
+    //private static final int THIS_RESULT_CODE = 2;
     static int arraySize= 18;
     public int count = 0;
     public String countText = "deckCount";
@@ -26,12 +28,26 @@ public class DeckBuilder extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deck_builder);
-        boolean temp[] = getIntent().getBooleanArrayExtra("test");
-        for(int i = 0; i < arraySize; i++){
-            checked[i] = temp[i];
-            if(checked[i]){
-                count++;}
+        Bundle extras = getIntent().getExtras();
+        //boolean temp[] = getIntent().getBooleanArrayExtra("test");
+        boolean temp[];
+        if(extras != null) {
+            if (extras.containsKey("cards")) {
+                temp = extras.getBooleanArray("cards");
+                for (int i = 0; i < arraySize; i++) {
+                    checked[i] = temp[i];
+                    if (checked[i]) {
+                        count++;
+                    }
+                }
             }
+            else
+                {
+                for (int i = 0; i < arraySize; i++)
+                    checked[i] = false;
+                }
+        }
+        checkDone();
         //checked = getIntent().getBooleanArrayExtra("test");
         //getIntent().getBooleanArrayExtra();
         //final TextView countTextText = findViewById(R.id.testText);
@@ -127,13 +143,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (plus1.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
+                    checked[0] = true;
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
+                    checked[0] = false;
                 }
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -459,10 +479,31 @@ public class DeckBuilder extends AppCompatActivity
 
     }
 
-    protected void TEST()
+    protected void checkDone()
     {
         //FOR TESTING PURPOSES ONLY
+        final Button done = findViewById(R.id.deckBuilderDone);
+        if(count == 10)
+        {
+            done.setVisibility(View.VISIBLE);
+            done.setOnClickListener(new Button.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    //getIntent().putExtra("cards", checked);
+                    setResult(Activity.RESULT_OK, new Intent().putExtra("cards", checked));
+                    finish();
+                }
+            });
+        }
+        else
+        {
+            done.setVisibility(View.GONE);
+            done.setOnClickListener(null);
+        }
 
-    }
+
+    };
 
 }

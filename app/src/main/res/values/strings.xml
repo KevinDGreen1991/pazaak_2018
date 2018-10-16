@@ -3,4 +3,5 @@
     <string name="pazaak">Pazaak</string>
     <string name="cardLayout">Card layout</string>
     <string name="deckCount">deckCount</string>
+    <string name="done">DONE</string>
 </resources>
