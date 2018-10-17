@@ -26,5 +26,29 @@ public class SetAIDifficulty extends AppCompatActivity
                 SetAIDifficulty.this.startActivity(goingTo);
             }
         });
+
+        final Button toGameH = (Button) findViewById(R.id.bHard);
+
+        toGameH.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent goingTo = new Intent(SetAIDifficulty.this, Table.class);
+                SetAIDifficulty.this.startActivity(goingTo);
+            }
+        });
+
+        final Button toGameE = (Button) findViewById(R.id.bEasy);
+
+        toGameE.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent goingTo = new Intent(SetAIDifficulty.this, Table.class);
+                SetAIDifficulty.this.startActivity(goingTo);
+            }
+        });
     }
 }
