@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.app.Activity;
+import android.widget.ProgressBar;
 
 public class MainMenu extends AppCompatActivity
 {
@@ -15,6 +16,7 @@ public class MainMenu extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        //findViewById(R.id.loadingPanel).setVisibility(View.GONE);
         if(cards == null) {
             cards = new boolean[18];
             for (int i = 0; i < 18; i++) {
@@ -53,11 +55,13 @@ public class MainMenu extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                findViewById(R.id.loadingMain).setVisibility(View.VISIBLE);
                 Intent iDeckBuilder = new Intent(MainMenu.this, DeckBuilder.class);
                 iDeckBuilder.putExtra("cards", cards); //KEVIN testing
                 /*MainMenu.this.startActivity(iDeckBuilder);
                 cards = iDeckBuilder.getBooleanArrayExtra("cards");*/
                 MainMenu.this.startActivityForResult(iDeckBuilder, DECK_BUILDER);
+                findViewById(R.id.loadingMain).setVisibility(View.GONE);
                 //startActivityForResult(new Intent(Intent));
             }
         });
