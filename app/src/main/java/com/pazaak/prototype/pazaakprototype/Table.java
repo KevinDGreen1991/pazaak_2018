@@ -7,7 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Table extends AppCompatActivity
 {
@@ -16,6 +22,13 @@ public class Table extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table);
+
+        Card defaultDeck [] = new Card[4];
+        defaultDeck[0] = new Card (Card.MINUS, 3);
+        defaultDeck[1] = new Card(Card.PM, 5);
+        defaultDeck[2] = new Card(Card.MINUS, 6);
+        defaultDeck[3] = new Card(Card.PLUS, 1);
+
 
         Random generator = new Random();
         Card[] board1 = new Card[9];
@@ -52,10 +65,9 @@ public class Table extends AppCompatActivity
         board1slot2.setImageResource(board1[2].getImage());
         board1slot3.setImageResource(board1[3].getImage());
         board1slot4.setImageResource(board1[4].getImage());
-        board1slot5.setImageResource(board1[5].getImage());
-        board1slot6.setImageResource(board1[6].getImage());
-        board1slot7.setImageResource(board1[7].getImage());
-        board1slot8.setImageResource(board1[8].getImage());
-
+        board1slot5.setImageResource(defaultDeck[0].getImage());
+        board1slot6.setImageResource(defaultDeck[1].getImage());
+        board1slot7.setImageResource(defaultDeck[2].getImage());
+        board1slot8.setImageResource(defaultDeck[3].getImage());
     }
 }

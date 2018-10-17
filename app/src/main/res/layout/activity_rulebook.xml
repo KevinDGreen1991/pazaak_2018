@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/background_light"
             android:textSize="18sp"
+            android:text="@string/rules"
             app:fontFamily="@font/verdana"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
