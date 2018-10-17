@@ -28,6 +28,7 @@
             android:screenOrientation="landscape"/>
         <activity android:name=".Table"
             android:screenOrientation="landscape"/>
+        <activity android:name=".Rulebook" />
     </application>
 
 </manifest>
