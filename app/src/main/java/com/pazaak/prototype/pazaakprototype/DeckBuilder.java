@@ -143,14 +143,11 @@ public class DeckBuilder extends AppCompatActivity
                 if (plus1.isChecked())
                 {
                     count++;
-                    //countText = count + "/10";
-                    checked[0] = true;
                 } else
                 {
                     count--;
-                    //countText = count + "/10";
-                    checked[0] = false;
                 }
+                checked[0] = !checked[0];
                 countText = count + "/10";
                 deckCount.setText(countText);
                 checkDone();
@@ -165,14 +162,16 @@ public class DeckBuilder extends AppCompatActivity
                 if (plus2.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 }
+                checked[1] = !checked[1];
+                countText = count + "/10";
                 deckCount.setText(countText);
-            }
+                checkDone();            }
         });
 
         plus3.setOnClickListener(new CheckBox.OnClickListener()
@@ -183,14 +182,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (plus3.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[2] = !checked[2];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -202,14 +204,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (plus4.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[3] = !checked[3];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -221,14 +226,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (plus5.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[4] = !checked[4];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -240,14 +248,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (plus6.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[5] = !checked[5];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -259,14 +270,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (minus1.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[6] = !checked[6];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -278,14 +292,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (minus2.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[7] = !checked[7];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -297,14 +314,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (minus3.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[8] = !checked[8];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
         minus4.setOnClickListener(new CheckBox.OnClickListener()
@@ -315,14 +335,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (minus4.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[9] = !checked[9];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -334,14 +357,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (minus5.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[10] = !checked[10];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -353,14 +379,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (minus6.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[11] = !checked[11];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -372,14 +401,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (pm1.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[12] = !checked[12];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -391,14 +423,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (pm2.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[13] = !checked[13];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -410,14 +445,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (pm3.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[14] = !checked[14];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -429,14 +467,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (pm4.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[15] = !checked[15];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -448,14 +489,17 @@ public class DeckBuilder extends AppCompatActivity
                 if (pm5.isChecked())
                 {
                     count++;
-                    countText = count + "/10";
+                    //countText = count + "/10";
                 } else
                 {
                     count--;
-                    countText = count + "/10";
+                    //countText = count + "/10";
 
                 }
+                checked[16] = !checked[16];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
@@ -473,7 +517,10 @@ public class DeckBuilder extends AppCompatActivity
                     count--;
                     countText = count + "/10";
                 }
+                checked[17] = !checked[17];
+                countText = count + "/10";
                 deckCount.setText(countText);
+                checkDone();
             }
         });
 
