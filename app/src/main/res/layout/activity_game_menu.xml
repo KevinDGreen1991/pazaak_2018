@@ -10,13 +10,13 @@
 
     <Button
         android:id="@+id/bVsLocal"
-        android:layout_width="384dp"
+        android:layout_width="282dp"
         android:layout_height="55dp"
         android:layout_marginBottom="14dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/gradient_transparent"
         android:text="Local Play"
         android:textColor="@android:color/background_light"
-        app:fontFamily="@font/verdana"
+        app:fontFamily="@font/verdanab"
         app:layout_constraintBottom_toTopOf="@+id/bVsOnline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,45 +25,42 @@
 
     <Button
         android:id="@+id/bVsOnline"
-        android:layout_width="384dp"
+        android:layout_width="282dp"
         android:layout_height="55dp"
         android:layout_marginBottom="14dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/gradient_transparent"
         android:text="Online Play"
         android:textColor="@android:color/background_light"
-        app:fontFamily="@font/verdana"
+        app:fontFamily="@font/verdanab"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="398dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/bEasy"
-        android:layout_width="384dp"
+        android:layout_width="282dp"
         android:layout_height="55dp"
         android:layout_marginBottom="14dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/gradient_transparent"
         android:text="vs AI"
         android:textColor="@android:color/background_light"
-        app:fontFamily="@font/verdana"
+        app:fontFamily="@font/verdanab"
         app:layout_constraintBottom_toTopOf="@+id/bVsLocal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="218dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvPazaak"
-        android:layout_width="384dp"
-        android:layout_height="191dp"
+        android:layout_width="392dp"
+        android:layout_height="126dp"
         android:gravity="center"
         android:text="@string/pazaak"
         android:textColor="@android:color/background_light"
         android:textSize="48sp"
-        app:fontFamily="@font/verdana"
+        app:fontFamily="@font/verdanab"
         app:layout_constraintBottom_toTopOf="@+id/bEasy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteY="27dp"
         tools:text="Pazaak" />
 </android.support.constraint.ConstraintLayout>
