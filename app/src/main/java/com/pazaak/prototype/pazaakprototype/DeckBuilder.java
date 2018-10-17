@@ -11,6 +11,7 @@ import android.text.BoringLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DeckBuilder extends AppCompatActivity
@@ -20,6 +21,7 @@ public class DeckBuilder extends AppCompatActivity
     public int count = 0;
     public String countText = "deckCount";
     public boolean checked[] = new boolean[arraySize];
+    //Card test = new Card(Card.PLUS, 6);
     //public int i = 0;
 
     //TextView deckCount = findViewById(R.id.deckCount);
@@ -74,6 +76,8 @@ public class DeckBuilder extends AppCompatActivity
         checkBoxes[15] = findViewById(R.id.check_pm4);
         checkBoxes[16]= findViewById(R.id.check_pm5);
         checkBoxes[17]= findViewById(R.id.check_pm6);*/
+        //final ImageView test = findViewById(R.id.plus1);
+        //test.setImageResource(new Card(Card.PLUS, 6).getImage());
         final CheckBox plus1 = findViewById(R.id.check_plus1);
         plus1.setChecked(checked[0]);
         final CheckBox plus2 = findViewById(R.id.check_plus2);
