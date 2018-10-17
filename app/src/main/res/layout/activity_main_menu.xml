@@ -8,6 +8,7 @@
     tools:context=".MainMenu"
     tools:layout_editor_absoluteY="25dp">
 
+
     <TextView
         android:id="@+id/tvPazaak"
         android:layout_width="0dp"
@@ -67,4 +68,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPazaak" />
 
+
+    <ProgressBar
+        android:id="@+id/loadingMain"
+        style="?android:attr/progressBarStyleLarge"
+        android:visibility="gone"
+        android:layout_width="48dp"
+        android:layout_height="53dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintStart_toEndOf="@+id/bStartTutorial"
+        app:layout_constraintTop_toBottomOf="@+id/tvPazaak" />
 </android.support.constraint.ConstraintLayout>
