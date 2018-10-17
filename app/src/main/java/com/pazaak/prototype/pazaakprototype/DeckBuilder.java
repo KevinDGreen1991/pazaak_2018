@@ -21,9 +21,8 @@ public class DeckBuilder extends AppCompatActivity
     public int count = 0;
     public String countText = "deckCount";
     public boolean checked[] = new boolean[arraySize];
-    //Card test = new Card(Card.PLUS, 6);
+    Card test = new Card(Card.PLUS, 6);
     //public int i = 0;
-
     //TextView deckCount = findViewById(R.id.deckCount);
     @Override
     protected void onCreate(Bundle savedInstanceState)
