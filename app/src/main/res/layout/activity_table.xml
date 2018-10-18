@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/p1Slot0"
         android:layout_width="0dp"
-        android:layout_height="80dp"
+        android:layout_height="0dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/cardLayout"
@@ -53,8 +53,8 @@
 
     <ImageView
         android:id="@+id/p1Slot3"
-        android:layout_width="68dp"
-        android:layout_height="80dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
@@ -95,8 +95,8 @@
 
     <ImageView
         android:id="@+id/p1Slot6"
-        android:layout_width="68dp"
-        android:layout_height="80dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="64dp"
         android:layout_marginBottom="93dp"
         android:contentDescription="@string/cardLayout"
@@ -262,11 +262,12 @@
 
     <Button
         android:id="@+id/bStand"
-        android:layout_width="93dp"
+        android:layout_width="0dp"
         android:layout_height="35dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="5dp"
 
         android:layout_marginEnd="403dp"
+        android:layout_marginBottom="4dp"
         android:text="Stand"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bEndTurn"
@@ -275,9 +276,9 @@
 
     <Button
         android:id="@+id/bEndTurn"
-        android:layout_width="82dp"
+        android:layout_width="0dp"
         android:layout_height="35dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginEnd="5dp"
         android:text="End Turn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
