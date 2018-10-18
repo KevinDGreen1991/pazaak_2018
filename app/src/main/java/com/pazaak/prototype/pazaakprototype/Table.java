@@ -22,6 +22,7 @@ public class Table extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table);
+        final int p1CardsPlayed = 0;
 
         Card defaultDeck [] = new Card[4];
         defaultDeck[0] = new Card (Card.MINUS, 3);
@@ -31,7 +32,7 @@ public class Table extends AppCompatActivity
 
 
         Random generator = new Random();
-        Card[] board1 = new Card[9];
+        final Card[] board1 = new Card[9];
         Card[] board2 = new Card[9];
         Card[] MainDeck = new Card[40];
 
@@ -40,7 +41,7 @@ public class Table extends AppCompatActivity
             MainDeck[i] = new Card(4, (i + 1) % 11);
         }
 
-        Card myCard = new Card(4, 3);
+        final Card myCard = new Card(4, 3);
 
         int val = myCard.getValue();
 
@@ -50,24 +51,64 @@ public class Table extends AppCompatActivity
         }
 
 
-        ImageView board1slot0 = (ImageView) findViewById(R.id.p1Slot0);
-        ImageView board1slot1 = (ImageView) findViewById(R.id.p1Slot1);
-        ImageView board1slot2 = (ImageView) findViewById(R.id.p1Slot2);
-        ImageView board1slot3 = (ImageView) findViewById(R.id.p1Slot3);
-        ImageView board1slot4 = (ImageView) findViewById(R.id.p1Slot4);
-        ImageView board1slot5 = (ImageView) findViewById(R.id.p1Slot5);
-        ImageView board1slot6 = (ImageView) findViewById(R.id.p1Slot6);
-        ImageView board1slot7 = (ImageView) findViewById(R.id.p1Slot7);
-        ImageView board1slot8 = (ImageView) findViewById(R.id.p1Slot8);
+        final ImageView board1slot0 = (ImageView) findViewById(R.id.p1Slot0);
+        final ImageView board1slot1 = (ImageView) findViewById(R.id.p1Slot1);
+        final ImageView board1slot2 = (ImageView) findViewById(R.id.p1Slot2);
+        final ImageView board1slot3 = (ImageView) findViewById(R.id.p1Slot3);
+        final ImageView board1slot4 = (ImageView) findViewById(R.id.p1Slot4);
+        final ImageView board1slot5 = (ImageView) findViewById(R.id.p1Slot5);
+        final ImageView board1slot6 = (ImageView) findViewById(R.id.p1Slot6);
+        final ImageView board1slot7 = (ImageView) findViewById(R.id.p1Slot7);
+        final ImageView board1slot8 = (ImageView) findViewById(R.id.p1Slot8);
 
-        board1slot0.setImageResource(board1[0].getImage());
-        board1slot1.setImageResource(board1[1].getImage());
-        board1slot2.setImageResource(board1[2].getImage());
-        board1slot3.setImageResource(board1[3].getImage());
-        board1slot4.setImageResource(board1[4].getImage());
-        board1slot5.setImageResource(defaultDeck[0].getImage());
-        board1slot6.setImageResource(defaultDeck[1].getImage());
-        board1slot7.setImageResource(defaultDeck[2].getImage());
-        board1slot8.setImageResource(defaultDeck[3].getImage());
+        final Button endTurn = (Button) (findViewById(R.id.bEndTurn));
+
+        endTurn.setOnClickListener(new View.OnClickListener()
+        {
+            int myCards = p1CardsPlayed;
+            @Override
+            public void onClick(View view)
+            {
+                switch (myCards)
+                {
+                    case 0:
+                        board1slot0.setImageResource(board1[0].getImage());
+                        myCards++;
+                        break;
+                    case 1:
+                        board1slot1.setImageResource(board1[1].getImage());
+                        myCards++;
+                        break;
+                    case 2:
+                        board1slot2.setImageResource(board1[2].getImage());
+                        myCards++;
+                        break;
+                    case 3:
+                        board1slot3.setImageResource(board1[3].getImage());
+                        myCards++;
+                        break;
+                    case 4:
+                        board1slot4.setImageResource(board1[4].getImage());
+                        myCards++;
+                        break;
+                    case 5:
+                        board1slot5.setImageResource(board1[5].getImage());
+                        myCards++;
+                        break;
+                    case 6:
+                        board1slot6.setImageResource(board1[6].getImage());
+                        myCards++;
+                        break;
+                    case 7:
+                        board1slot7.setImageResource(board1[7].getImage());
+                        myCards++;
+                        break;
+                    case 8:
+                        board1slot8.setImageResource(board1[8].getImage());
+                        myCards++;
+                        break;
+                }
+            }
+        });
     }
 }
