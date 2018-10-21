@@ -110,5 +110,34 @@ public class Table extends AppCompatActivity
                 }
             }
         });
+
+
+
+        /*
+         * Decided to help out here a bit :) wanted to get familiar with the java file
+         * Created/Displayed a temporary hand for player 1
+         * Feel free to modify/expand/delete
+         */
+
+        /* generates random values for card retrieval in board1 slots from 0 - (board1.length - 1)*/
+        int randomCardValue = generator.nextInt(board1.length);
+
+        final ImageView board1hand1 = (ImageView) findViewById(R.id.p1Hand1);
+        final ImageView board1hand2 = (ImageView) findViewById(R.id.p1Hand2);
+        final ImageView board1hand3 = (ImageView) findViewById(R.id.p1Hand3);
+        final ImageView board1hand4 = (ImageView) findViewById(R.id.p1Hand4);
+
+        /* Sets images of random card obtained into empty hand slots */
+
+        board1hand1.setImageResource(board1[randomCardValue].getImage());
+        randomCardValue = generator.nextInt(board1.length);
+        board1hand2.setImageResource(board1[randomCardValue].getImage());
+        randomCardValue = generator.nextInt(board1.length);
+        board1hand3.setImageResource(board1[randomCardValue].getImage());
+        randomCardValue = generator.nextInt(board1.length);
+        board1hand4.setImageResource(board1[randomCardValue].getImage());
+
+
+
     }
 }

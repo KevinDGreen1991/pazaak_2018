@@ -271,7 +271,6 @@
         android:text="Stand"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bEndTurn"
-        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -298,7 +297,7 @@
         android:layout_width="52dp"
         android:layout_height="72dp"
         android:contentDescription="@string/cardLayout"
-        app:srcCompat="@drawable/empty"
+        app:srcCompat="@drawable/empty_dark"
         tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/emptySpace" />
@@ -308,7 +307,7 @@
         android:layout_width="52dp"
         android:layout_height="72dp"
         android:contentDescription="@string/cardLayout"
-        app:srcCompat="@drawable/empty"
+        app:srcCompat="@drawable/empty_dark"
         tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/p1Hand1" />
@@ -318,7 +317,7 @@
         android:layout_width="52dp"
         android:layout_height="72dp"
         android:contentDescription="@string/cardLayout"
-        app:srcCompat="@drawable/empty"
+        app:srcCompat="@drawable/empty_dark"
         tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/p1Hand2" />
@@ -328,10 +327,9 @@
         android:layout_width="52dp"
         android:layout_height="72dp"
         android:contentDescription="@string/cardLayout"
-        app:srcCompat="@drawable/empty"
+        app:srcCompat="@drawable/empty_dark"
         tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/p1Hand3" />
-
 
 </android.support.constraint.ConstraintLayout>
