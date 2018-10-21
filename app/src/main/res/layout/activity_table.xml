@@ -283,5 +283,55 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <ImageView
+        android:id="@+id/emptySpace"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/space"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/bStand" />
+
+    <ImageView
+        android:id="@+id/p1Hand1"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/empty"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/emptySpace" />
+
+    <ImageView
+        android:id="@+id/p1Hand2"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/empty"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/p1Hand1" />
+
+    <ImageView
+        android:id="@+id/p1Hand3"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/empty"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/p1Hand2" />
+
+    <ImageView
+        android:id="@+id/p1Hand4"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:contentDescription="@string/cardLayout"
+        app:srcCompat="@drawable/empty"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/p1Hand3" />
+
 
 </android.support.constraint.ConstraintLayout>
