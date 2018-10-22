@@ -21,7 +21,6 @@ public class Card {
             this.cardValue = 1;
         else
             this.cardValue = value;
-
     }
     public int getType()
     {
@@ -78,4 +77,27 @@ public class Card {
             default: return R.drawable.ic_launcher_background;
         }
     }
+    public static Card[] getSideDeck(boolean cards[])
+    {
+        Card deck[] = new Card[10];
+        int count = 0;
+        for(int i = 0; i < 18 && count < 10; i++)
+        {
+            if(cards[i])
+            {
+                deck[count] = new Card(i / 6, (i / 3) + 1);
+                count++;
+            }
+        }
+        for(int i = 0; count < 10 && i < 18; i++)
+        {
+            if(!cards[i])
+            {
+                deck[count] = new Card(i/6, (i/3)+1);
+                count++;
+            }
+        }
+        return deck;
+    }
 }
+
