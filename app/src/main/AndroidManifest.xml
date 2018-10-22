@@ -26,8 +26,7 @@
             android:name=".DeckBuilder"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".TutorialMenu"
-            android:screenOrientation="landscape" />
+            android:name=".TutorialMenu" />
         <activity
             android:name=".SetAIDifficulty"
             android:screenOrientation="landscape" />
@@ -35,7 +34,7 @@
             android:name=".Table"
             android:screenOrientation="landscape" />
         <activity android:name=".Rulebook" />
-        <activity android:name=".Walkthrough"></activity>
+        <activity android:name=".Walkthrough" />
     </application>
 
 </manifest>

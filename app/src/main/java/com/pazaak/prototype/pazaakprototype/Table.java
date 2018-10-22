@@ -385,8 +385,8 @@ public class Table extends AppCompatActivity
 
     public void checkifEnd(boolean stand1, boolean stand2, int val1, int val2)
     {
-        if (stand1 && stand2)
-        {
+        //if (stand1 && stand2)
+        //{
             if (val1 > val2)
             {
                 Context context = getApplicationContext();
@@ -414,6 +414,6 @@ public class Table extends AppCompatActivity
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             }
-        }
+        //}
     }
 }
