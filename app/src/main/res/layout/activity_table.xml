@@ -262,7 +262,7 @@
 
     <Button
         android:id="@+id/bStand"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="35dp"
         android:layout_marginStart="5dp"
 
@@ -270,37 +270,29 @@
         android:layout_marginBottom="4dp"
         android:text="Stand"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bEndTurn"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/bEndTurn"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="35dp"
         android:layout_marginEnd="5dp"
         android:text="End Turn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:id="@+id/emptySpace"
-        android:layout_width="52dp"
-        android:layout_height="72dp"
-        android:contentDescription="@string/cardLayout"
-        app:srcCompat="@drawable/space"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/bStand" />
+
 
     <ImageView
         android:id="@+id/p1Hand1"
         android:layout_width="52dp"
         android:layout_height="72dp"
+        android:layout_marginLeft="110dp"
         android:contentDescription="@string/cardLayout"
         app:srcCompat="@drawable/empty_dark"
         tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/emptySpace" />
+        app:layout_constraintStart_toEndOf="@+id/bStand" />
 
     <ImageView
         android:id="@+id/p1Hand2"
