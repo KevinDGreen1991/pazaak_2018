@@ -8,6 +8,8 @@
     tools:context=".Table">
 
 
+
+
     <ImageView
         android:id="@+id/p1Slot0"
         android:layout_width="0dp"
@@ -323,5 +325,27 @@
         tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/p1Hand3" />
+
+    <TextView
+        android:id="@+id/p1Score"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:text="P1Score"
+        android:fontFamily="@font/verdanab"
+        android:textColor="@color/brightBlue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/p2Score"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:text="P2Score"
+        android:textColor="@color/brightRed"
+        android:fontFamily="@font/verdanab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
