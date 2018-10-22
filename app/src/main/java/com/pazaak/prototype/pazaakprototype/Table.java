@@ -47,7 +47,7 @@ public class Table extends AppCompatActivity
 
         for (int i = 0; i < MainDeck.length; i++)
         {
-            MainDeck[i] = new Card(4, (i + 1) % 11);
+            MainDeck[i] = new Card(Card.MAIN, (i + 1) % 11);
         }
 
         for (int i = 0; i < board1.length; i++)
