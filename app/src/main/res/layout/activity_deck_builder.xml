@@ -4,6 +4,392 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DeckBuilder">
+    tools:context=".DeckBuilder"
+    android:background="@drawable/gradient">
+
+    <CheckBox
+        android:id="@+id/check_pm6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_pm5"
+        app:layout_constraintTop_toBottomOf="@+id/pm6" />
+
+    <CheckBox
+        android:id="@+id/check_pm5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_pm4"
+        app:layout_constraintTop_toBottomOf="@+id/pm5" />
+
+    <CheckBox
+        android:id="@+id/check_pm4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_pm3"
+        app:layout_constraintTop_toBottomOf="@+id/pm4" />
+
+    <CheckBox
+        android:id="@+id/check_pm3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_pm2"
+        app:layout_constraintTop_toBottomOf="@+id/pm3" />
+
+    <CheckBox
+        android:id="@+id/check_pm2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_pm1"
+        app:layout_constraintTop_toBottomOf="@+id/pm2" />
+
+    <CheckBox
+        android:id="@+id/check_pm1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pm1" />
+
+    <CheckBox
+        android:id="@+id/check_minus6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_minus5"
+        app:layout_constraintTop_toBottomOf="@+id/minus6" />
+
+    <CheckBox
+        android:id="@+id/check_minus5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_minus4"
+        app:layout_constraintTop_toBottomOf="@+id/minus5" />
+
+    <CheckBox
+        android:id="@+id/check_minus4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_minus3"
+        app:layout_constraintTop_toBottomOf="@+id/minus4" />
+
+    <CheckBox
+        android:id="@+id/check_minus3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_minus2"
+        app:layout_constraintTop_toBottomOf="@+id/minus3" />
+
+    <CheckBox
+        android:id="@+id/check_minus2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_minus1"
+        app:layout_constraintTop_toBottomOf="@+id/minus2" />
+
+    <CheckBox
+        android:id="@+id/check_minus1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minus1" />
+
+    <CheckBox
+        android:id="@+id/check_plus6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_plus5"
+        app:layout_constraintTop_toBottomOf="@+id/plus6" />
+
+    <CheckBox
+        android:id="@+id/check_plus5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_plus4"
+        app:layout_constraintTop_toBottomOf="@+id/plus5" />
+
+    <CheckBox
+        android:id="@+id/check_plus4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_plus3"
+        app:layout_constraintTop_toBottomOf="@+id/plus4" />
+
+    <CheckBox
+        android:id="@+id/check_plus3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_plus2"
+        app:layout_constraintTop_toBottomOf="@+id/plus3" />
+
+    <CheckBox
+        android:id="@+id/check_plus2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toEndOf="@+id/check_plus1"
+        app:layout_constraintTop_toBottomOf="@+id/plus2" />
+
+    <ImageView
+        android:id="@+id/pm6"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/pm5"
+        app:layout_constraintTop_toBottomOf="@+id/minus6"
+        app:srcCompat="@drawable/pm6"
+        />
+
+    <ImageView
+        android:id="@+id/pm5"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/pm4"
+        app:layout_constraintTop_toBottomOf="@+id/minus5"
+        app:srcCompat="@drawable/pm5" />
+
+    <ImageView
+        android:id="@+id/pm4"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/pm3"
+        app:layout_constraintTop_toBottomOf="@+id/minus4"
+        app:srcCompat="@drawable/pm4" />
+
+    <ImageView
+        android:id="@+id/pm3"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/pm2"
+        app:layout_constraintTop_toBottomOf="@+id/minus3"
+        app:srcCompat="@drawable/pm3" />
+
+    <ImageView
+        android:id="@+id/pm2"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/pm1"
+        app:layout_constraintTop_toBottomOf="@+id/minus2"
+        app:srcCompat="@drawable/pm2" />
+
+    <ImageView
+        android:id="@+id/pm1"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minus1"
+        app:srcCompat="@drawable/pm1" />
+
+    <ImageView
+        android:id="@+id/minus6"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/minus5"
+        app:layout_constraintTop_toBottomOf="@+id/plus6"
+        app:srcCompat="@drawable/minus6" />
+
+    <ImageView
+        android:id="@+id/minus5"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/minus4"
+        app:layout_constraintTop_toBottomOf="@+id/plus5"
+        app:srcCompat="@drawable/minus5" />
+
+    <ImageView
+        android:id="@+id/minus4"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/minus3"
+        app:layout_constraintTop_toBottomOf="@+id/plus4"
+        app:srcCompat="@drawable/minus4" />
+
+    <ImageView
+        android:id="@+id/minus3"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/minus2"
+        app:layout_constraintTop_toBottomOf="@+id/plus3"
+        app:srcCompat="@drawable/minus3" />
+
+    <ImageView
+        android:id="@+id/minus2"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/minus1"
+        app:layout_constraintTop_toBottomOf="@+id/plus2"
+        app:srcCompat="@drawable/minus2" />
+
+    <ImageView
+        android:id="@+id/minus1"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plus1"
+        app:srcCompat="@drawable/minus1" />
+
+    <ImageView
+        android:id="@+id/plus6"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/plus5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/plus6" />
+
+    <ImageView
+        android:id="@+id/plus5"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/plus4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/plus5" />
+
+    <ImageView
+        android:id="@+id/plus4"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/plus3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/plus4" />
+
+    <ImageView
+        android:id="@+id/plus3"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/plus2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/plus3" />
+
+    <ImageView
+        android:id="@+id/plus2"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/plus1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/plus2" />
+
+    <ImageView
+        android:id="@+id/plus1"
+        android:contentDescription="@string/cardLayout"
+        android:layout_width="68dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/plus1" />
+
+    <CheckBox
+        android:id="@+id/check_plus1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:buttonTint="@color/green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/plus1" />
+
+    <TextView
+        android:id="@+id/deckCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="96dp"
+        android:fontFamily="@font/verdanab"
+        android:text="@string/deckCount"
+        android:textColor="@color/sithYellow"
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/minus6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/deckBuilderDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="61dp"
+        android:text="@string/done"
+        app:layout_constraintStart_toEndOf="@+id/minus6"
+        app:layout_constraintTop_toBottomOf="@+id/deckCount" />
 
 </android.support.constraint.ConstraintLayout>

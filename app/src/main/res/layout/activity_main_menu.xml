@@ -8,6 +8,7 @@
     tools:context=".MainMenu"
     tools:layout_editor_absoluteY="25dp">
 
+
     <TextView
         android:id="@+id/tvPazaak"
         android:layout_width="0dp"
@@ -18,7 +19,7 @@
         android:text="@string/pazaak"
         android:textColor="@android:color/background_light"
         android:textSize="48sp"
-        app:fontFamily="@font/verdana"
+        app:fontFamily="@font/verdanab"
         app:layout_constraintBottom_toTopOf="@+id/bStartGame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,13 +28,13 @@
 
     <Button
         android:id="@+id/bDeckBuilder"
-        android:layout_width="0dp"
+        android:layout_width="282dp"
         android:layout_height="55dp"
         android:layout_marginBottom="14dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/gradient_transparent"
         android:text="Deck Builder"
         android:textColor="@android:color/background_light"
-        app:fontFamily="@font/verdana"
+        app:fontFamily="@font/verdanab"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,14 +42,13 @@
 
     <Button
         android:id="@+id/bStartTutorial"
-        android:layout_width="0dp"
+        android:layout_width="282dp"
         android:layout_height="55dp"
         android:layout_marginBottom="14dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/gradient_transparent"
         android:text="Start Tutorial"
         android:textColor="@android:color/background_light"
-
-        app:fontFamily="@font/verdana"
+        app:fontFamily="@font/verdanab"
         app:layout_constraintBottom_toTopOf="@+id/bDeckBuilder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,16 +56,28 @@
 
     <Button
         android:id="@+id/bStartGame"
-        android:layout_width="0dp"
+        android:layout_width="282dp"
         android:layout_height="55dp"
         android:layout_marginBottom="14dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/gradient_transparent"
         android:text="Start Game"
         android:textColor="@android:color/background_light"
-        app:fontFamily="@font/verdana"
+        app:fontFamily="@font/verdanab"
         app:layout_constraintBottom_toTopOf="@+id/bStartTutorial"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPazaak" />
 
+
+    <ProgressBar
+        android:id="@+id/loadingMain"
+        style="?android:attr/progressBarStyleLarge"
+        android:visibility="gone"
+        android:layout_width="48dp"
+        android:layout_height="53dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintStart_toEndOf="@+id/bStartTutorial"
+        app:layout_constraintTop_toBottomOf="@+id/tvPazaak" />
 </android.support.constraint.ConstraintLayout>
