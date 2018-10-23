@@ -32,5 +32,7 @@ How to Win:\n
 	The player with the highest score(without busting) after both players have chosen to stand, wins the set.\n\n\n</string>
 	<string name="how_to_play">How to Play</string>
 	<string name="walkthrough">Walkthrough</string>
+    <string name="stand">Stand</string>
+	<string name="end_turn">End Turn</string>
 
 </resources>

@@ -33,7 +33,7 @@ public class TutorialMenu extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent iWalkthrough = new Intent(TutorialMenu.this, Rulebook.class);
+                Intent iWalkthrough = new Intent(TutorialMenu.this, Walkthrough.class);
                 TutorialMenu.this.startActivity(iWalkthrough);
             }
         });

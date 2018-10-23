@@ -267,10 +267,10 @@
         android:layout_width="100dp"
         android:layout_height="35dp"
         android:layout_marginStart="5dp"
-
+        android:background="@color/spaceGray"
         android:layout_marginEnd="403dp"
         android:layout_marginBottom="4dp"
-        android:text="Stand"
+        android:text="@string/stand"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -279,7 +279,9 @@
         android:layout_width="100dp"
         android:layout_height="35dp"
         android:layout_marginEnd="5dp"
-        android:text="End Turn"
+        android:layout_marginBottom="4dp"
+        android:background="@color/spaceGray"
+        android:text="@string/end_turn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
