@@ -5,6 +5,26 @@
     <string name="deckCount">deckCount</string>
     <string name="done">DONE</string>
 
+	<string name="contents">
+		Pazaak consists of:\n\n
+		\t 2 gameboards\n
+		\t 1 main deck\n
+		\t 2 Sidedecks\n
+		\t 5 card types\n\n
+	</string>
+	<string name="objective">Object Of Game:\n
+		\t Win a set by getting closer to 20 points than your opponent without going over (busting) or by filling up your gameboard without going over 20 points.\n
+		\t The first player to win 3 sets, wins the entire match.\n\n
+	</string>
+	<string name="gameplay">Gameplay:\n\n
+		At the start of each respective players turn they will be dealt a card onto their gameboard from the main deck\n
+	</string>
+	<string name="gameplay2">
+		That player may either play a card, end their turn, or stand.\n
+	</string>
+	<string name="playCard">Play a card:\n
+		Each player has a hand of 4 cards to play. Players do not draw anymore cards for the rest of the match.
+	</string>
     <string name="rules">How to Play:\n
 	In the game of Pazaak, there are three different decks used. The main deck, which consists of cards numbered 1 through 10 with four of each. The other two decks are the side decks, which are used by the two players, these decks have 10 cards each, selected by the user of the deck.\n
 	When the game starts, each player will receive 4 randomly picked cards from their side decks, This is their hand, it is not to be seen by the opponent. The player who goes first draws a card from the main deck and plays it on the table. After this is done, the player must choose to either play a card from their hand or to end their turn. The player must remember that they can only place one card from their hand per turn and no other cards can be drawn from their side deck. \n

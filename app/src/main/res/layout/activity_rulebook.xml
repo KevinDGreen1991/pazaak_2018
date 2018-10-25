@@ -12,21 +12,41 @@
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/transparentBlack"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tvRules"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/background_light"
-            android:textSize="18sp"
-            android:text="@string/rules"
-            app:fontFamily="@font/verdana"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/tvComponents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:text="@string/contents"
+                app:fontFamily="@font/verdana"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tvObjective"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:text="@string/objective"
+                app:fontFamily="@font/verdana"
+                />
+
+        </LinearLayout>
     </ScrollView>
 
     <Button
@@ -34,7 +54,7 @@
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginEnd="5dp"
-        android:text="I don't want to read!"
+        android:text="Show me instead!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
