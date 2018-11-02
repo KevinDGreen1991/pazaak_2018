@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import org.w3c.dom.Text;
-
-import android.text.BoringLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -29,12 +26,25 @@ public class DeckBuilder extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deck_builder);
+        setCheckboxes();
+        checkDone();
+        setButtons();
+        //checked = getIntent().getBooleanArrayExtra("test");
+        //getIntent().getBooleanArrayExtra();
+        //final TextView countTextText = findViewById(R.id.testText);
+        //countTextText.setText(test+"");
+
+
+
+    }
+    protected void setCheckboxes()
+    {
         Bundle extras = getIntent().getExtras();
         //boolean temp[] = getIntent().getBooleanArrayExtra("test");
         boolean temp[];
         if(extras != null) {
-            if (extras.containsKey("cards")) {
-                temp = extras.getBooleanArray("cards");
+            if (extras.containsKey("cards") && (temp = extras.getBooleanArray("cards")) != null) {
+                //temp = extras.getBooleanArray("cards");
                 for (int i = 0; i < arraySize; i++) {
                     checked[i] = temp[i];
                     if (checked[i]) {
@@ -43,17 +53,40 @@ public class DeckBuilder extends AppCompatActivity
                 }
             }
             else
-                {
+            {
                 for (int i = 0; i < arraySize; i++)
                     checked[i] = false;
-                }
+            }
         }
-        checkDone();
-        //checked = getIntent().getBooleanArrayExtra("test");
-        //getIntent().getBooleanArrayExtra();
-        //final TextView countTextText = findViewById(R.id.testText);
-        //countTextText.setText(test+"");
+    }
+    protected void checkDone()
+    {
+        //FOR TESTING PURPOSES ONLY
+        final Button done = findViewById(R.id.deckBuilderDone);
+        if(count == 10)
+        {
+            done.setVisibility(View.VISIBLE);
+            done.setOnClickListener(new Button.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    //getIntent().putExtra("cards", checked);
+                    setResult(Activity.RESULT_OK, new Intent().putExtra("cards", checked));
+                    finish();
+                }
+            });
+        }
+        else
+        {
+            done.setVisibility(View.GONE);
+            done.setOnClickListener(null);
+        }
 
+
+    }
+    protected void setButtons()
+    {
         final TextView deckCount = findViewById(R.id.deckCount);
         //NOTE: checkbox position can be read from top left going left to right
         /*final CheckBox checkBoxes[] = new CheckBox[arraySize];
@@ -114,6 +147,7 @@ public class DeckBuilder extends AppCompatActivity
         final CheckBox pm6 = findViewById(R.id.check_pm6);
         pm6.setChecked(checked[17]);
         //public int count = 0;
+        final ImageView test = findViewById(R.id.plus1_db);
         countText = count+"/10";
         deckCount.setText(countText);
 
@@ -137,7 +171,24 @@ public class DeckBuilder extends AppCompatActivity
                 }
             });
         }*/
-
+        test.setOnClickListener(new ImageView.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                checked[0] = !checked[0];
+                plus1.setChecked(checked[0]);
+                if (plus1.isChecked())
+                {
+                    count++;
+                } else
+                {
+                    count--;
+                }
+                countText = count + "/10";
+                deckCount.setText(countText);
+                checkDone();
+            }
+        });
         plus1.setOnClickListener(new CheckBox.OnClickListener()
         {
             @Override
@@ -526,34 +577,6 @@ public class DeckBuilder extends AppCompatActivity
                 checkDone();
             }
         });
-
     }
-
-    protected void checkDone()
-    {
-        //FOR TESTING PURPOSES ONLY
-        final Button done = findViewById(R.id.deckBuilderDone);
-        if(count == 10)
-        {
-            done.setVisibility(View.VISIBLE);
-            done.setOnClickListener(new Button.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    //getIntent().putExtra("cards", checked);
-                    setResult(Activity.RESULT_OK, new Intent().putExtra("cards", checked));
-                    finish();
-                }
-            });
-        }
-        else
-        {
-            done.setVisibility(View.GONE);
-            done.setOnClickListener(null);
-        }
-
-
-    };
 
 }
