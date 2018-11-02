@@ -10,5 +10,6 @@
     <color name="brightBlue">#007FFF</color>
     <color name="brightRed">#ff0000</color>
     <color name="spaceGray">#65737e</color>
+    <color name="trans_green">#ff009900</color>
     <color name="transparency40Black">#59000000</color>
 </resources>

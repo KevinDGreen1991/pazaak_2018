@@ -371,26 +371,42 @@
 
     <TextView
         android:id="@+id/deckCount"
-        android:layout_width="wrap_content"
+        android:layout_width="148dp"
         android:layout_height="31dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/spaceGray"
         android:fontFamily="@font/verdanab"
         android:text="@string/deckCount"
         android:textColor="@color/sithYellow"
         android:textSize="25sp"
-        android:background="@drawable/gradient"
-        app:layout_constraintStart_toEndOf="@+id/minus6_db"
+        app:layout_constraintStart_toEndOf="@+id/plus6_db"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/deckBuilderDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="92dp"
         android:text="@string/done"
-        app:layout_constraintStart_toEndOf="@+id/minus6_db"
-        app:layout_constraintTop_toBottomOf="@+id/deckCount" />
+        android:fontFamily="@font/verdanab"
+        android:background="@color/trans_green"
+        android:alpha=".25"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/revert_db"
+        app:layout_constraintStart_toEndOf="@+id/minus6_db" />
+
+    <Button
+        android:id="@+id/revert_db"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/revert"
+        android:fontFamily="@font/verdanab"
+        android:visibility="visible"
+        android:background="@color/brightRed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pm6_db" />
 
 </android.support.constraint.ConstraintLayout>
