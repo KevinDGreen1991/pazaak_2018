@@ -38,6 +38,7 @@ public class MainMenu extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent iGameMenu = new Intent(MainMenu.this, GameMenu.class);
+                iGameMenu.putExtra("cards", cards);
                 MainMenu.this.startActivity(iGameMenu);
             }
         });
