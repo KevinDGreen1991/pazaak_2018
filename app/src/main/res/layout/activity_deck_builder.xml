@@ -374,6 +374,7 @@
         android:layout_width="148dp"
         android:layout_height="31dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="48dp"
         android:background="@color/spaceGray"
         android:fontFamily="@font/verdanab"
         android:text="@string/deckCount"
@@ -384,29 +385,41 @@
 
     <Button
         android:id="@+id/deckBuilderDone"
-        android:layout_width="wrap_content"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_marginStart="20dp"
-        android:text="@string/done"
-        android:fontFamily="@font/verdanab"
-        android:background="@color/trans_green"
+        android:layout_marginEnd="28dp"
         android:alpha=".25"
+        android:background="@color/trans_green"
+        android:fontFamily="@font/verdanab"
+        android:text="@string/done_db"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/revert_db"
-        app:layout_constraintStart_toEndOf="@+id/minus6_db" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/revert_db"
-        android:layout_width="wrap_content"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:layout_marginStart="20dp"
-        android:text="@string/revert"
-        android:fontFamily="@font/verdanab"
-        android:visibility="visible"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="28dp"
         android:background="@color/brightRed"
+        android:fontFamily="@font/verdanab"
+        android:text="@string/revert"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/clear_db"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/clear_db"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="55dp"
+        android:layout_marginEnd="28dp"
+        android:background="@color/sithYellow"
+        android:fontFamily="@font/verdanab"
+        android:text="CLEAR"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/pm6_db" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
