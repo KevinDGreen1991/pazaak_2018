@@ -66,7 +66,16 @@ public class MainMenu extends AppCompatActivity
                 //startActivityForResult(new Intent(Intent));
             }
         });
-
+        final Button toTesting = findViewById(R.id.TestingMain);
+        toTesting.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent iTesting = new Intent(MainMenu.this, Testing.class);
+                MainMenu.this.startActivity(iTesting);
+            }
+        });
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
