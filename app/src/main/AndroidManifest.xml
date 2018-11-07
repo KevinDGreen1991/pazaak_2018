@@ -43,6 +43,8 @@
             android:screenOrientation="landscape" />
         <activity android:name=".Testing"
             android:screenOrientation="landscape" />
+        <activity android:name=".DeckBuilderV2"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

@@ -46,6 +46,7 @@ public class DeckBuilderV2 extends AppCompatActivity
         setDeckCountField();
         checkDone();
         setButtonToggles();
+        setButtonFunctions();
     }
     protected void setChecked()
     {
@@ -105,6 +106,12 @@ public class DeckBuilderV2 extends AppCompatActivity
         }
 
 
+    }
+    protected void setDeckCountField()
+    {
+    TextView currentCount = findViewById(R.id.deckCount);
+    countText = count +"/10";
+    currentCount.setText(countText);
     }
     protected void clearButtons()
     {
@@ -197,6 +204,7 @@ public class DeckBuilderV2 extends AppCompatActivity
             {
                 clearButtons();
                 checkDone();
+                //setDeckCountField();
             }
         });
         revert.setOnClickListener(new View.OnClickListener()
@@ -207,9 +215,11 @@ public class DeckBuilderV2 extends AppCompatActivity
                 setChecked();
                 count = checkCount();
                 setButtonToggles();
+                setDeckCountField();
                 checkDone();
             }
         });
+
         plus1.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -219,11 +229,176 @@ public class DeckBuilderV2 extends AppCompatActivity
                 setToggle(plus1.getId(), checked[plus1ID]);
             }
         });
+
+        plus2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(plus2ID);
+                setToggle(plus2.getId(), checked[plus2ID]);
+            }
+        });
+
+        plus3.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(plus3ID);
+                setToggle(plus3.getId(), checked[plus3ID]);
+            }
+        });
+
+        plus4.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(plus4ID);
+                setToggle(plus4.getId(), checked[plus4ID]);
+            }
+        });
+
+        plus5.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(plus5ID);
+                setToggle(plus5.getId(), checked[plus5ID]);
+            }
+        });
+
+        plus6.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(plus6ID);
+                setToggle(plus6.getId(), checked[plus6ID]);
+            }
+        });
+
+        minus1.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(minus1ID);
+                setToggle(minus1.getId(), checked[minus1ID]);
+            }
+        });
+
+        minus2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(minus2ID);
+                setToggle(minus2.getId(), checked[minus2ID]);
+            }
+        });
+
+        minus3.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(minus3ID);
+                setToggle(minus3.getId(), checked[minus3ID]);
+            }
+        });
+
+        minus4.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(minus4ID);
+                setToggle(minus4.getId(), checked[minus4ID]);
+            }
+        });
+
+        minus5.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(minus5ID);
+                setToggle(minus5.getId(), checked[minus5ID]);
+            }
+        });
+
+        minus6.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(minus6ID);
+                setToggle(minus6.getId(), checked[minus6ID]);
+            }
+        });
+
+        pm1.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(pm1ID);
+                setToggle(pm1.getId(), checked[pm1ID]);
+            }
+        });
+
+        pm2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(pm2ID);
+                setToggle(pm2.getId(), checked[pm2ID]);
+            }
+        });
+
+        pm3.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(pm3ID);
+                setToggle(pm3.getId(), checked[pm3ID]);
+            }
+        });
+
+        pm4.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(pm4ID);
+                setToggle(pm4.getId(), checked[pm4ID]);
+            }
+        });
+
+        pm5.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(pm5ID);
+                setToggle(pm5.getId(), checked[pm5ID]);
+            }
+        });
+
+        pm6.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                addRemoveCard(pm6ID);
+                setToggle(pm6.getId(), checked[pm6ID]);
+            }
+        });
     }
-    protected void setDeckCountField()
-    {
-        TextView currentCount = findViewById(R.id.deckCount);
-        countText = count +"10";
-        currentCount.setText(countText);
-    }
+
 }

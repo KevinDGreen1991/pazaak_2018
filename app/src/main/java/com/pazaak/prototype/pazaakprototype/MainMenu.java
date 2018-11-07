@@ -57,7 +57,8 @@ public class MainMenu extends AppCompatActivity
             public void onClick(View v)
             {
                 findViewById(R.id.loadingMain).setVisibility(View.VISIBLE);
-                Intent iDeckBuilder = new Intent(MainMenu.this, DeckBuilder.class);
+                Intent iDeckBuilder = new Intent(MainMenu.this, DeckBuilderV2.class);
+
                 iDeckBuilder.putExtra("cards", cards); //KEVIN testing
                 /*MainMenu.this.startActivity(iDeckBuilder);
                 cards = iDeckBuilder.getBooleanArrayExtra("cards");*/
