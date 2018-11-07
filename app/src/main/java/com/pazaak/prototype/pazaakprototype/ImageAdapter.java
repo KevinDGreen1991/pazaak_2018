@@ -19,6 +19,7 @@ public class ImageAdapter extends PagerAdapter {
         myContext = context;
     }
 
+    @Override
     public int getCount() {
         return myImagesIds.length;
     }
@@ -28,9 +29,8 @@ public class ImageAdapter extends PagerAdapter {
         return view == object;
     }
 
-    @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+    public Object instantiateItem( ViewGroup container, int position) {
         ImageView imageView = new ImageView(myContext);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         imageView.setImageResource(myImagesIds[position]);
@@ -39,7 +39,7 @@ public class ImageAdapter extends PagerAdapter {
     }
 
     @Override
-    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+    public void destroyItem( ViewGroup container, int position, Object object) {
         container.removeView((ImageView) object);
     }
 }
