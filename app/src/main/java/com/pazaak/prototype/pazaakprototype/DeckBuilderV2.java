@@ -168,6 +168,9 @@ public class DeckBuilderV2 extends AppCompatActivity
     }
     protected void setButtonFunctions()
     {
+        final Button clear = findViewById(R.id.clear_db);
+        final Button revert = findViewById(R.id.revert_db);
+
         final ImageButton plus1 = findViewById(R.id.plus1_db);
         final ImageButton plus2 = findViewById(R.id.plus2_db);
         final ImageButton plus3 = findViewById(R.id.plus3_db);
@@ -186,8 +189,27 @@ public class DeckBuilderV2 extends AppCompatActivity
         final ImageButton pm4 = findViewById(R.id.pm4_db);
         final ImageButton pm5 = findViewById(R.id.pm5_db);
         final ImageButton pm6 = findViewById(R.id.pm6_db);
-        final Button clear = findViewById(R.id.clear_db);
 
+        clear.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                clearButtons();
+                checkDone();
+            }
+        });
+        revert.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                setChecked();
+                count = checkCount();
+                setButtonToggles();
+                checkDone();
+            }
+        });
         plus1.setOnClickListener(new View.OnClickListener()
         {
             @Override
