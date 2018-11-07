@@ -41,6 +41,8 @@
         <activity
             android:name=".Walkthrough"
             android:screenOrientation="landscape" />
+        <activity android:name=".Testing"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>
