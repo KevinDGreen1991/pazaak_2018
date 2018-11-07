@@ -11,8 +11,8 @@
         android:id="@+id/Slot0"
         android:layout_width="61dp"
         android:layout_height="73dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="53dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/empty" />
@@ -21,8 +21,8 @@
         android:id="@+id/Slot1"
         android:layout_width="61dp"
         android:layout_height="73dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintStart_toEndOf="@+id/Slot0"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/empty" />
@@ -31,8 +31,8 @@
         android:id="@+id/Slot2"
         android:layout_width="61dp"
         android:layout_height="73dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintStart_toEndOf="@+id/Slot1"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/empty" />
@@ -41,7 +41,8 @@
         android:id="@+id/Slot3"
         android:layout_width="61dp"
         android:layout_height="73dp"
-        android:layout_marginStart="176dp"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="9dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Slot0"
         app:srcCompat="@drawable/empty" />
@@ -50,7 +51,8 @@
         android:id="@+id/Slot4"
         android:layout_width="61dp"
         android:layout_height="73dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toEndOf="@+id/Slot3"
         app:layout_constraintTop_toBottomOf="@+id/Slot1"
         app:srcCompat="@drawable/empty" />
@@ -59,7 +61,8 @@
         android:id="@+id/Slot5"
         android:layout_width="61dp"
         android:layout_height="73dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toEndOf="@+id/Slot4"
         app:layout_constraintTop_toBottomOf="@+id/Slot2"
         app:srcCompat="@drawable/empty" />
@@ -68,7 +71,8 @@
         android:id="@+id/Slot6"
         android:layout_width="61dp"
         android:layout_height="73dp"
-        android:layout_marginStart="176dp"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="9dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Slot3"
         app:srcCompat="@drawable/empty" />
@@ -77,7 +81,8 @@
         android:id="@+id/Slot7"
         android:layout_width="61dp"
         android:layout_height="73dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toEndOf="@+id/Slot6"
         app:layout_constraintTop_toBottomOf="@+id/Slot4"
         app:srcCompat="@drawable/empty" />
@@ -86,15 +91,16 @@
         android:id="@+id/Slot8"
         android:layout_width="61dp"
         android:layout_height="73dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toEndOf="@+id/Slot7"
         app:layout_constraintTop_toBottomOf="@+id/Slot5"
         app:srcCompat="@drawable/empty" />
 
     <Button
-        android:layout_width="100dp"
+        android:id="@+id/stand"
+        android:layout_width="136dp"
         android:layout_height="40dp"
-        android:layout_marginEnd="84dp"
         android:layout_marginBottom="4dp"
         android:text="Stand"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -102,12 +108,21 @@
 
 
     <Button
-        android:layout_width="100dp"
+        android:id="@+id/end"
+        android:layout_width="137dp"
         android:layout_height="40dp"
-        android:layout_marginStart="68dp"
         android:layout_marginBottom="4dp"
         android:text="End Turn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:layout_width="85dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:text="Player Score: "
+        android:textColor="@color/brightBlue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
