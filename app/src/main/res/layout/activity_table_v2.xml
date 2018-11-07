@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2"
+    tools:context=".Table">
+
+    <ImageView
+        android:id="@+id/Slot0"
+        android:layout_width="61dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/empty" />
+
+    <ImageView
+        android:id="@+id/Slot1"
+        android:layout_width="61dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/Slot0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/empty" />
+
+    <ImageView
+        android:id="@+id/Slot2"
+        android:layout_width="61dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toEndOf="@+id/Slot1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/empty" />
+
+    <ImageView
+        android:id="@+id/Slot3"
+        android:layout_width="61dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="176dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Slot0"
+        app:srcCompat="@drawable/empty" />
+
+    <ImageView
+        android:id="@+id/Slot4"
+        android:layout_width="61dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/Slot3"
+        app:layout_constraintTop_toBottomOf="@+id/Slot1"
+        app:srcCompat="@drawable/empty" />
+
+    <ImageView
+        android:id="@+id/Slot5"
+        android:layout_width="61dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/Slot4"
+        app:layout_constraintTop_toBottomOf="@+id/Slot2"
+        app:srcCompat="@drawable/empty" />
+
+    <ImageView
+        android:id="@+id/Slot6"
+        android:layout_width="61dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="176dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Slot3"
+        app:srcCompat="@drawable/empty" />
+
+    <ImageView
+        android:id="@+id/Slot7"
+        android:layout_width="61dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/Slot6"
+        app:layout_constraintTop_toBottomOf="@+id/Slot4"
+        app:srcCompat="@drawable/empty" />
+
+    <ImageView
+        android:id="@+id/Slot8"
+        android:layout_width="61dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/Slot7"
+        app:layout_constraintTop_toBottomOf="@+id/Slot5"
+        app:srcCompat="@drawable/empty" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="16dp"
+        android:text="Stand"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginBottom="16dp"
+        android:text="End Turn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
