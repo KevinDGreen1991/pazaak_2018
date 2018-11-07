@@ -26,6 +26,7 @@ public class Table extends AppCompatActivity
     final int END_TURN = 0;
     final int STAND = 1;
     final int PLAY_CARD = 2;
+    Card[] MainDeck = new Card[40];
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,7 +43,7 @@ public class Table extends AppCompatActivity
         Random generator = new Random();
         final Card[] board1 = new Card[9];
         final Card[] board2 = new Card[9];
-        Card[] MainDeck = new Card[40];
+
 
         final int[] p1Value = {0};
         final int[]  p2Value = {0};
@@ -83,69 +84,71 @@ public class Table extends AppCompatActivity
         endTurn.setOnClickListener(new View.OnClickListener()
         {
             //int myCards = p1CardsPlayed[0];
-            int meh[] = {0, 0};
+            //int meh[] = {0, 0};
 
             @Override
             public void onClick(View view)
             {
                 if (p1Stand[0] == true && p2Stand[0] == false)
                 {
-                    meh = p2Turn(p2Value[0], board2[p2CardsPlayed[0]], p2Stand[0]);
-                    p2Value[0] = meh[0];
+                    p2Value[0] = p2Turn(p2Value[0], board2[p2CardsPlayed[0]], p2Stand[0]);
+                    //p2Value[0] = meh[0];
                 }
                 if (yourTurn[0] == true && p1Stand[0] == false)
                 {
-                    switch (p1CardsPlayed[0])
-                    {
-                        case 0:
-                            board1Slots[0].setImageResource(board1[0].getImage());
-                            p1Value[0] += board1[0].getValue();
-                            p1CardsPlayed[0]++;
-                            break;
-                        case 1:
-                            board1Slots[1].setImageResource(board1[1].getImage());
-                            p1Value[0] += board1[1].getValue();
-                            p1CardsPlayed[0]++;
-                            break;
-                        case 2:
-                            board1Slots[2].setImageResource(board1[2].getImage());
-                            p1Value[0] += board1[2].getValue();
-                            p1CardsPlayed[0]++;
-                            break;
-                        case 3:
-                            board1Slots[3].setImageResource(board1[3].getImage());
-                            p1Value[0] += board1[3].getValue();
-                            p1CardsPlayed[0]++;
-                            break;
-                        case 4:
-                            board1Slots[4].setImageResource(board1[4].getImage());
-                            p1Value[0] += board1[4].getValue();
-                            p1CardsPlayed[0]++;
-                            break;
-                        case 5:
-                            board1Slots[5].setImageResource(board1[5].getImage());
-                            p1Value[0] += board1[5].getValue();
-                            p1CardsPlayed[0]++;
-                            break;
-                        case 6:
-                            board1Slots[6].setImageResource(board1[6].getImage());
-                            p1Value[0] += board1[6].getValue();
-                            p1CardsPlayed[0]++;
-                            break;
-                        case 7:
-                            board1Slots[7].setImageResource(board1[7].getImage());
-                            p1Value[0] += board1[7].getValue();
-                            p1CardsPlayed[0]++;
-                            break;
-                        case 8:
-                            board1Slots[8].setImageResource(board1[8].getImage());
-                            p1Value[0] += board1[8].getValue();
-                            p1CardsPlayed[0]++;
-                            break;
-                    }
+                    p1Value[0] = p1Turn(p1Value[0], p1CardsPlayed[0], board1Slots);
+                    p1CardsPlayed[0]++;
+//                    switch (p1CardsPlayed[0])
+//                    {
+//                        case 0:
+//                            board1Slots[0].setImageResource(board1[0].getImage());
+//                            p1Value[0] += board1[0].getValue();
+//                            p1CardsPlayed[0]++;
+//                            break;
+//                        case 1:
+//                            board1Slots[1].setImageResource(board1[1].getImage());
+//                            p1Value[0] += board1[1].getValue();
+//                            p1CardsPlayed[0]++;
+//                            break;
+//                        case 2:
+//                            board1Slots[2].setImageResource(board1[2].getImage());
+//                            p1Value[0] += board1[2].getValue();
+//                            p1CardsPlayed[0]++;
+//                            break;
+//                        case 3:
+//                            board1Slots[3].setImageResource(board1[3].getImage());
+//                            p1Value[0] += board1[3].getValue();
+//                            p1CardsPlayed[0]++;
+//                            break;
+//                        case 4:
+//                            board1Slots[4].setImageResource(board1[4].getImage());
+//                            p1Value[0] += board1[4].getValue();
+//                            p1CardsPlayed[0]++;
+//                            break;
+//                        case 5:
+//                            board1Slots[5].setImageResource(board1[5].getImage());
+//                            p1Value[0] += board1[5].getValue();
+//                            p1CardsPlayed[0]++;
+//                            break;
+//                        case 6:
+//                            board1Slots[6].setImageResource(board1[6].getImage());
+//                            p1Value[0] += board1[6].getValue();
+//                            p1CardsPlayed[0]++;
+//                            break;
+//                        case 7:
+//                            board1Slots[7].setImageResource(board1[7].getImage());
+//                            p1Value[0] += board1[7].getValue();
+//                            p1CardsPlayed[0]++;
+//                            break;
+//                        case 8:
+//                            board1Slots[8].setImageResource(board1[8].getImage());
+//                            p1Value[0] += board1[8].getValue();
+//                            p1CardsPlayed[0]++;
+//                            break;
+//                    }
                     yourTurn[0] = false;
-                    meh = p2Turn(p2Value[0], board2[p2CardsPlayed[0]], p2Stand[0]);
-                    p2Value[0] = meh[0];
+                    p2Value[0] = p2Turn(p2Value[0], board2[p2CardsPlayed[0]], p2Stand[0]);
+                    //p2Value[0] = meh[0];
                     if (p2Stand[0] == false)
                     {
                         switch (p2CardsPlayed[0])
@@ -209,12 +212,12 @@ public class Table extends AppCompatActivity
          */
 
         /* generates random values for card retrieval in board1 slots from 0 - (board1.length - 1)*/
-        int randomCardValue = generator.nextInt(board1.length);
+        //int randomCardValue = generator.nextInt(board1.length);
 
-        final ImageButton board1hand1 = (ImageButton) findViewById(R.id.p1Hand1);
-        final ImageView board1hand2 = (ImageView) findViewById(R.id.p1Hand2);
-        final ImageView board1hand3 = (ImageView) findViewById(R.id.p1Hand3);
-        final ImageView board1hand4 = (ImageView) findViewById(R.id.p1Hand4);
+        final ImageButton board1hand1 =  findViewById(R.id.p1Hand1);
+        final ImageButton board1hand2 =  findViewById(R.id.p1Hand2);
+        final ImageButton board1hand3 =  findViewById(R.id.p1Hand3);
+        final ImageButton board1hand4 =  findViewById(R.id.p1Hand4);
 
         /* Sets images of random card obtained into empty hand slots */
 
@@ -234,40 +237,44 @@ public class Table extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-
-                switch (p1CardsPlayed[0])
-                {
-                    case 0:
-                        board1Slots[0].setImageResource(player1Hand[0].getImage());
-                        break;
-                    case 1:
-                        board1Slots[1].setImageResource(player1Hand[0].getImage());
-                        break;
-                    case 2:
-                        board1Slots[2].setImageResource(player1Hand[0].getImage());
-                        break;
-                    case 3:
-                        board1Slots[3].setImageResource(player1Hand[0].getImage());
-                        break;
-                    case 4:
-                        board1Slots[4].setImageResource(player1Hand[0].getImage());
-                        break;
-                    case 5:
-                        board1Slots[5].setImageResource(player1Hand[0].getImage());
-                        break;
-                    case 6:
-                        board1Slots[6].setImageResource(player1Hand[0].getImage());
-                        break;
-                    case 7:
-                        board1Slots[7].setImageResource(player1Hand[0].getImage());
-                        break;
-                    case 8:
-                        board1Slots[8].setImageResource(player1Hand[0].getImage());
-                        break;
-
-                }
+                p1Value[0] = p1PlayCard(p1Value[0],p1CardsPlayed[0], player1Hand[0], board1Slots);
+                board1hand1.setImageResource(R.drawable.empty_dark);
                 p1CardsPlayed[0]++;
-                p1Value[0] = p1Value[0] + player1Hand[0].getValue();
+                //yourTurn[0] = false;
+
+//                switch (p1CardsPlayed[0])
+//                {
+//                    case 0:
+//                        board1Slots[0].setImageResource(player1Hand[0].getImage());
+//                        break;
+//                    case 1:
+//                        board1Slots[1].setImageResource(player1Hand[0].getImage());
+//                        break;
+//                    case 2:
+//                        board1Slots[2].setImageResource(player1Hand[0].getImage());
+//                        break;
+//                    case 3:
+//                        board1Slots[3].setImageResource(player1Hand[0].getImage());
+//                        break;
+//                    case 4:
+//                        board1Slots[4].setImageResource(player1Hand[0].getImage());
+//                        break;
+//                    case 5:
+//                        board1Slots[5].setImageResource(player1Hand[0].getImage());
+//                        break;
+//                    case 6:
+//                        board1Slots[6].setImageResource(player1Hand[0].getImage());
+//                        break;
+//                    case 7:
+//                        board1Slots[7].setImageResource(player1Hand[0].getImage());
+//                        break;
+//                    case 8:
+//                        board1Slots[8].setImageResource(player1Hand[0].getImage());
+//                        break;
+//
+//                }
+                //p1CardsPlayed[0]++;
+                //p1Value[0] = p1Value[0] + player1Hand[0].getValue();
 
             }
         });
@@ -278,40 +285,42 @@ public class Table extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-
-                switch (p1CardsPlayed[0])
-                {
-                    case 0:
-                        board1Slots[0].setImageResource(player1Hand[1].getImage());
-                        break;
-                    case 1:
-                        board1Slots[1].setImageResource(player1Hand[1].getImage());
-                        break;
-                    case 2:
-                        board1Slots[2].setImageResource(player1Hand[1].getImage());
-                        break;
-                    case 3:
-                        board1Slots[3].setImageResource(player1Hand[1].getImage());
-                        break;
-                    case 4:
-                        board1Slots[4].setImageResource(player1Hand[1].getImage());
-                        break;
-                    case 5:
-                        board1Slots[5].setImageResource(player1Hand[1].getImage());
-                        break;
-                    case 6:
-                        board1Slots[6].setImageResource(player1Hand[1].getImage());
-                        break;
-                    case 7:
-                        board1Slots[7].setImageResource(player1Hand[1].getImage());
-                        break;
-                    case 8:
-                        board1Slots[8].setImageResource(player1Hand[1].getImage());
-                        break;
-
-                }
+                p1Value[0] = p1PlayCard(p1Value[0],p1CardsPlayed[0], player1Hand[1], board1Slots);
+                board1hand2.setImageResource(R.drawable.empty_dark);
                 p1CardsPlayed[0]++;
-                p1Value[0] = p1Value[0] + player1Hand[1].getValue();
+//                switch (p1CardsPlayed[0])
+//                {
+//                    case 0:
+//                        board1Slots[0].setImageResource(player1Hand[1].getImage());
+//                        break;
+//                    case 1:
+//                        board1Slots[1].setImageResource(player1Hand[1].getImage());
+//                        break;
+//                    case 2:
+//                        board1Slots[2].setImageResource(player1Hand[1].getImage());
+//                        break;
+//                    case 3:
+//                        board1Slots[3].setImageResource(player1Hand[1].getImage());
+//                        break;
+//                    case 4:
+//                        board1Slots[4].setImageResource(player1Hand[1].getImage());
+//                        break;
+//                    case 5:
+//                        board1Slots[5].setImageResource(player1Hand[1].getImage());
+//                        break;
+//                    case 6:
+//                        board1Slots[6].setImageResource(player1Hand[1].getImage());
+//                        break;
+//                    case 7:
+//                        board1Slots[7].setImageResource(player1Hand[1].getImage());
+//                        break;
+//                    case 8:
+//                        board1Slots[8].setImageResource(player1Hand[1].getImage());
+//                        break;
+//
+//                }
+//                p1CardsPlayed[0]++;
+//                p1Value[0] = p1Value[0] + player1Hand[1].getValue();
 
             }
         });
@@ -322,40 +331,42 @@ public class Table extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-
-                switch (p1CardsPlayed[0])
-                {
-                    case 0:
-                        board1Slots[0].setImageResource(player1Hand[2].getImage());
-                        break;
-                    case 1:
-                        board1Slots[1].setImageResource(player1Hand[2].getImage());
-                        break;
-                    case 2:
-                        board1Slots[2].setImageResource(player1Hand[2].getImage());
-                        break;
-                    case 3:
-                        board1Slots[3].setImageResource(player1Hand[2].getImage());
-                        break;
-                    case 4:
-                        board1Slots[4].setImageResource(player1Hand[2].getImage());
-                        break;
-                    case 5:
-                        board1Slots[5].setImageResource(player1Hand[2].getImage());
-                        break;
-                    case 6:
-                        board1Slots[6].setImageResource(player1Hand[2].getImage());
-                        break;
-                    case 7:
-                        board1Slots[7].setImageResource(player1Hand[2].getImage());
-                        break;
-                    case 8:
-                        board1Slots[8].setImageResource(player1Hand[2].getImage());
-                        break;
-
-                }
+                p1Value[0] = p1PlayCard(p1Value[0],p1CardsPlayed[0], player1Hand[2], board1Slots);
+                board1hand3.setImageResource(R.drawable.empty_dark);
                 p1CardsPlayed[0]++;
-                p1Value[0] = p1Value[0] + player1Hand[2].getValue();
+//                switch (p1CardsPlayed[0])
+//                {
+//                    case 0:
+//                        board1Slots[0].setImageResource(player1Hand[2].getImage());
+//                        break;
+//                    case 1:
+//                        board1Slots[1].setImageResource(player1Hand[2].getImage());
+//                        break;
+//                    case 2:
+//                        board1Slots[2].setImageResource(player1Hand[2].getImage());
+//                        break;
+//                    case 3:
+//                        board1Slots[3].setImageResource(player1Hand[2].getImage());
+//                        break;
+//                    case 4:
+//                        board1Slots[4].setImageResource(player1Hand[2].getImage());
+//                        break;
+//                    case 5:
+//                        board1Slots[5].setImageResource(player1Hand[2].getImage());
+//                        break;
+//                    case 6:
+//                        board1Slots[6].setImageResource(player1Hand[2].getImage());
+//                        break;
+//                    case 7:
+//                        board1Slots[7].setImageResource(player1Hand[2].getImage());
+//                        break;
+//                    case 8:
+//                        board1Slots[8].setImageResource(player1Hand[2].getImage());
+//                        break;
+
+                //}
+                //p1CardsPlayed[0]++;
+                //p1Value[0] = p1Value[0] + player1Hand[2].getValue();
 
             }
         });
@@ -366,75 +377,89 @@ public class Table extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-
-                switch (p1CardsPlayed[0])
-                {
-                    case 0:
-                        board1Slots[0].setImageResource(player1Hand[3].getImage());
-                        break;
-                    case 1:
-                        board1Slots[1].setImageResource(player1Hand[3].getImage());
-                        break;
-                    case 2:
-                        board1Slots[2].setImageResource(player1Hand[3].getImage());
-                        break;
-                    case 3:
-                        board1Slots[3].setImageResource(player1Hand[3].getImage());
-                        break;
-                    case 4:
-                        board1Slots[4].setImageResource(player1Hand[3].getImage());
-                        break;
-                    case 5:
-                        board1Slots[5].setImageResource(player1Hand[3].getImage());
-                        break;
-                    case 6:
-                        board1Slots[6].setImageResource(player1Hand[3].getImage());
-                        break;
-                    case 7:
-                        board1Slots[7].setImageResource(player1Hand[3].getImage());
-                        break;
-                    case 8:
-                        board1Slots[8].setImageResource(player1Hand[3].getImage());
-                        break;
-
-                }
+                p1Value[0] = p1PlayCard(p1Value[0],p1CardsPlayed[0], player1Hand[3], board1Slots);
+                board1hand4.setImageResource(R.drawable.empty_dark);
                 p1CardsPlayed[0]++;
-                p1Value[0] = p1Value[0] + player1Hand[3].getValue();
+//                switch (p1CardsPlayed[0])
+//                {
+//                    case 0:
+//                        board1Slots[0].setImageResource(player1Hand[3].getImage());
+//                        break;
+//                    case 1:
+//                        board1Slots[1].setImageResource(player1Hand[3].getImage());
+//                        break;
+//                    case 2:
+//                        board1Slots[2].setImageResource(player1Hand[3].getImage());
+//                        break;
+//                    case 3:
+//                        board1Slots[3].setImageResource(player1Hand[3].getImage());
+//                        break;
+//                    case 4:
+//                        board1Slots[4].setImageResource(player1Hand[3].getImage());
+//                        break;
+//                    case 5:
+//                        board1Slots[5].setImageResource(player1Hand[3].getImage());
+//                        break;
+//                    case 6:
+//                        board1Slots[6].setImageResource(player1Hand[3].getImage());
+//                        break;
+//                    case 7:
+//                        board1Slots[7].setImageResource(player1Hand[3].getImage());
+//                        break;
+//                    case 8:
+//                        board1Slots[8].setImageResource(player1Hand[3].getImage());
+//                        break;
+//
+//                }
+//                p1CardsPlayed[0]++;
+//                p1Value[0] = p1Value[0] + player1Hand[3].getValue();
 
             }
         });
 
     }
 
-    //Returns the new value of the board
-    protected int p1Turn(int action, int currentValue, int cardsPlayed)
+    protected  int p1PlayCard(int currentValue, int cardsPlayed, Card cardToPlay, ImageView board[])
     {
+        board[cardsPlayed].setImageResource(cardToPlay.getImage());
+
+        return currentValue + cardToPlay.getValue();
+    }
+
+    //Returns the new value of the board
+    protected int p1Turn(int currentValue, int cardsPlayed, ImageView board[])
+    {
+        int returnedValue = 0;
+        returnedValue = p1EndTurn(currentValue, cardsPlayed, board);
 
         return 0;
     }
 
-    public int[] p2Turn(int curVal, Card cardToPlay, boolean stand)
+    protected int p1EndTurn(int currentValue, int cardsPlayed, ImageView board[])
+    {
+        Random getMainDeckCard = new Random();
+        Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1)% 11];
+        board[cardsPlayed].setImageResource(cardToDraw.getImage());
+        return currentValue + cardToDraw.getValue();
+
+
+    }
+
+    protected int p2Turn(int curVal, Card cardToPlay, boolean stand)
     {
 //        try
 //        {
 //            wait(1500);
 //        } catch (InterruptedException e)
 //        {
-//            e.printStackTrace();
-//        }
-
+        int p2NewValue = 0;
         if (curVal >= 16)
         {
             stand = true;
-            int[] returned = {curVal, 1};
-            return returned;
+            p2NewValue = curVal;
         }
-        else
-        {
-            curVal += cardToPlay.getValue();
-        }
-        int[] returned = {curVal, 0};
-        return returned;
+        p2NewValue = cardToPlay.getValue();
+        return p2NewValue + curVal;
     }
 
     public void checkifEnd(boolean stand1, boolean stand2, int val1, int val2)
