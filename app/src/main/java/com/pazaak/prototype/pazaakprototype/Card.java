@@ -85,7 +85,7 @@ public class Card {
         {
             if(cards[i])
             {
-                deck[count] = new Card(i / 6, (i / 3) + 1);
+                deck[count] = new Card(i / 6, (i % 6) + 1);
                 count++;
             }
         }
@@ -93,7 +93,7 @@ public class Card {
         {
             if(!cards[i])
             {
-                deck[count] = new Card(i/6, (i/3)+1);
+                deck[count] = new Card(i/6, (i % 6 )+1);
                 count++;
             }
         }

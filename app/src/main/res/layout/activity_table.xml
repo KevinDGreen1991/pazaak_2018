@@ -286,44 +286,59 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 
-
-    <ImageView
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <ImageButton
         android:id="@+id/p1Hand1"
         android:layout_width="52dp"
         android:layout_height="72dp"
-        android:layout_marginLeft="110dp"
+        android:padding="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:layout_weight="1"
+        android:layout_marginStart="110dp"
         android:contentDescription="@string/cardLayout"
-        app:srcCompat="@drawable/empty_dark"
-        tools:ignore="MissingConstraints"
+        android:src="@drawable/empty_dark"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bStand" />
+        app:layout_constraintStart_toEndOf="@+id/bStand"
+        app:srcCompat="@drawable/empty_dark"
+        tools:srcCompat="@drawable/empty_dark" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/p1Hand2"
         android:layout_width="52dp"
         android:layout_height="72dp"
+        android:padding="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
         android:contentDescription="@string/cardLayout"
-        app:srcCompat="@drawable/empty_dark"
+        android:src="@drawable/empty_dark"
         tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/p1Hand1" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/p1Hand3"
         android:layout_width="52dp"
         android:layout_height="72dp"
+        android:padding="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
         android:contentDescription="@string/cardLayout"
-        app:srcCompat="@drawable/empty_dark"
-        tools:ignore="MissingConstraints"
+        android:src="@drawable/empty_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/p1Hand2" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/p1Hand4"
         android:layout_width="52dp"
         android:layout_height="72dp"
+        android:padding="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
         android:contentDescription="@string/cardLayout"
-        app:srcCompat="@drawable/empty_dark"
+        android:src="@drawable/empty_dark"
         tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/p1Hand3" />

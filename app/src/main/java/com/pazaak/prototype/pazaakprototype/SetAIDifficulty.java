@@ -13,6 +13,7 @@ public class SetAIDifficulty extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        final Bundle extras = getIntent().getExtras();
         setContentView(R.layout.activity_set_aidifficulty);
 
         final Button toGame = (Button) findViewById(R.id.bMedium);
@@ -23,6 +24,7 @@ public class SetAIDifficulty extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent goingTo = new Intent(SetAIDifficulty.this, Table.class);
+                goingTo.putExtra("cards", extras.getBooleanArray("cards"));
                 SetAIDifficulty.this.startActivity(goingTo);
             }
         });
@@ -35,6 +37,7 @@ public class SetAIDifficulty extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent goingTo = new Intent(SetAIDifficulty.this, Table.class);
+                goingTo.putExtra("cards", extras.getBooleanArray("cards"));
                 SetAIDifficulty.this.startActivity(goingTo);
             }
         });
@@ -47,6 +50,7 @@ public class SetAIDifficulty extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent goingTo = new Intent(SetAIDifficulty.this, Table.class);
+                goingTo.putExtra("cards", extras.getBooleanArray("cards"));
                 SetAIDifficulty.this.startActivity(goingTo);
             }
         });

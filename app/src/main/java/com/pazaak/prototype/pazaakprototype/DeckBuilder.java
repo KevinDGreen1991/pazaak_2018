@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import org.w3c.dom.Text;
-
-import android.text.BoringLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -29,12 +26,25 @@ public class DeckBuilder extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deck_builder);
+        setCheckboxes();
+        checkDone();
+        setButtons();
+        //checked = getIntent().getBooleanArrayExtra("test");
+        //getIntent().getBooleanArrayExtra();
+        //final TextView countTextText = findViewById(R.id.testText);
+        //countTextText.setText(test+"");
+
+
+
+    }
+    protected void setCheckboxes()
+    {
         Bundle extras = getIntent().getExtras();
         //boolean temp[] = getIntent().getBooleanArrayExtra("test");
         boolean temp[];
         if(extras != null) {
-            if (extras.containsKey("cards")) {
-                temp = extras.getBooleanArray("cards");
+            if (extras.containsKey("cards") && (temp = extras.getBooleanArray("cards")) != null) {
+                //temp = extras.getBooleanArray("cards");
                 for (int i = 0; i < arraySize; i++) {
                     checked[i] = temp[i];
                     if (checked[i]) {
@@ -43,40 +53,85 @@ public class DeckBuilder extends AppCompatActivity
                 }
             }
             else
-                {
+            {
                 for (int i = 0; i < arraySize; i++)
                     checked[i] = false;
-                }
+            }
         }
+        TextView deckCount = findViewById(R.id.deckCount);
+         CheckBox plus1 = findViewById(R.id.check_plus1);
+        plus1.setChecked(checked[0]);
+         CheckBox plus2 = findViewById(R.id.check_plus2);
+        plus2.setChecked(checked[1]);
+         CheckBox plus3 = findViewById(R.id.check_plus3);
+        plus3.setChecked(checked[2]);
+         CheckBox plus4 = findViewById(R.id.check_plus4);
+        plus4.setChecked(checked[3]);
+         CheckBox plus5 = findViewById(R.id.check_plus5);
+        plus5.setChecked(checked[4]);
+         CheckBox plus6 = findViewById(R.id.check_plus6);
+        plus6.setChecked(checked[5]);
+         CheckBox minus1 = findViewById(R.id.check_minus1);
+        minus1.setChecked(checked[6]);
+         CheckBox minus2 = findViewById(R.id.check_minus2);
+        minus2.setChecked(checked[7]);
+         CheckBox minus3 = findViewById(R.id.check_minus3);
+        minus3.setChecked(checked[8]);
+         CheckBox minus4 = findViewById(R.id.check_minus4);
+        minus4.setChecked(checked[9]);
+         CheckBox minus5 = findViewById(R.id.check_minus5);
+        minus5.setChecked(checked[10]);
+         CheckBox minus6 = findViewById(R.id.check_minus6);
+        minus6.setChecked(checked[11]);
+         CheckBox pm1 = findViewById(R.id.check_pm1);
+        pm1.setChecked(checked[12]);
+         CheckBox pm2 = findViewById(R.id.check_pm2);
+        pm2.setChecked(checked[13]);
+         CheckBox pm3 = findViewById(R.id.check_pm3);
+        pm3.setChecked(checked[14]);
+        CheckBox pm4 = findViewById(R.id.check_pm4);
+        pm4.setChecked(checked[15]);
+        CheckBox pm5 = findViewById(R.id.check_pm5);
+        pm5.setChecked(checked[16]);
+        CheckBox pm6 = findViewById(R.id.check_pm6);
+        pm6.setChecked(checked[17]);
+        count = checkCount();
+        countText = count+"/10";
+        deckCount.setText(countText);
         checkDone();
-        //checked = getIntent().getBooleanArrayExtra("test");
-        //getIntent().getBooleanArrayExtra();
-        //final TextView countTextText = findViewById(R.id.testText);
-        //countTextText.setText(test+"");
+    }
+    protected void checkDone()
+    {
+        //FOR TESTING PURPOSES ONLY
+        final Button done = findViewById(R.id.deckBuilderDone);
+        if(count == 10)
+        {
+            done.setAlpha(1);
+            done.setOnClickListener(new Button.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    //getIntent().putExtra("cards", checked);
+                    setResult(Activity.RESULT_OK, new Intent().putExtra("cards", checked));
+                    finish();
+                }
+            });
+        }
+        else
+        {
+            done.setAlpha((float)0.25);
+            done.setOnClickListener(null);
+        }
 
+
+    }
+    protected void setButtons()
+    {
         final TextView deckCount = findViewById(R.id.deckCount);
         //NOTE: checkbox position can be read from top left going left to right
-        /*final CheckBox checkBoxes[] = new CheckBox[arraySize];
-        checkBoxes[0] = findViewById(R.id.check_plus1);
-        checkBoxes[1]= findViewById(R.id.check_plus2);
-        checkBoxes[2]= findViewById(R.id.check_plus3);
-        checkBoxes[3] = findViewById(R.id.check_plus4);
-        checkBoxes[4]= findViewById(R.id.check_plus5);
-        checkBoxes[5]= findViewById(R.id.check_plus6);
-        checkBoxes[6]= findViewById(R.id.check_minus1);
-        checkBoxes[7]= findViewById(R.id.check_minus2);
-        checkBoxes[8]= findViewById(R.id.check_minus3);
-        checkBoxes[9]= findViewById(R.id.check_minus4);
-        checkBoxes[10] = findViewById(R.id.check_minus5);
-        checkBoxes[11] = findViewById(R.id.check_minus6);
-        checkBoxes[12] = findViewById(R.id.check_pm1);
-        checkBoxes[13] = findViewById(R.id.check_pm2);
-        checkBoxes[14]= findViewById(R.id.check_pm3);
-        checkBoxes[15] = findViewById(R.id.check_pm4);
-        checkBoxes[16]= findViewById(R.id.check_pm5);
-        checkBoxes[17]= findViewById(R.id.check_pm6);*/
-        //final ImageView test = findViewById(R.id.plus1);
-        //test.setImageResource(new Card(Card.PLUS, 6).getImage());
+        final Button revert = findViewById(R.id.revert_db);
+        final Button clearButton = findViewById(R.id.clear_db);
         final CheckBox plus1 = findViewById(R.id.check_plus1);
         plus1.setChecked(checked[0]);
         final CheckBox plus2 = findViewById(R.id.check_plus2);
@@ -114,8 +169,11 @@ public class DeckBuilder extends AppCompatActivity
         final CheckBox pm6 = findViewById(R.id.check_pm6);
         pm6.setChecked(checked[17]);
         //public int count = 0;
+        final ImageView test = findViewById(R.id.plus1_db);
+        count = checkCount();
         countText = count+"/10";
         deckCount.setText(countText);
+        checkDone();
 
         /*for(i = 0; i < arraySize; i++)
         {
@@ -137,7 +195,40 @@ public class DeckBuilder extends AppCompatActivity
                 }
             });
         }*/
-
+        revert.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                setCheckboxes();
+            }
+        });
+        clearButton.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                clearButtons();
+            }
+        });
+        test.setOnClickListener(new ImageView.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                checked[0] = !checked[0];
+                plus1.setChecked(checked[0]);
+                if (plus1.isChecked())
+                {
+                    count++;
+                } else
+                {
+                    count--;
+                }
+                countText = count + "/10";
+                deckCount.setText(countText);
+                checkDone();
+            }
+        });
         plus1.setOnClickListener(new CheckBox.OnClickListener()
         {
             @Override
@@ -526,34 +617,60 @@ public class DeckBuilder extends AppCompatActivity
                 checkDone();
             }
         });
-
     }
-
-    protected void checkDone()
+    protected int checkCount()
     {
-        //FOR TESTING PURPOSES ONLY
-        final Button done = findViewById(R.id.deckBuilderDone);
-        if(count == 10)
-        {
-            done.setVisibility(View.VISIBLE);
-            done.setOnClickListener(new Button.OnClickListener()
-            {
-                @Override
-                public void onClick(View view)
-                {
-                    //getIntent().putExtra("cards", checked);
-                    setResult(Activity.RESULT_OK, new Intent().putExtra("cards", checked));
-                    finish();
-                }
-            });
-        }
-        else
-        {
-            done.setVisibility(View.GONE);
-            done.setOnClickListener(null);
-        }
-
-
-    };
-
+        int temp_count = 0;
+        for(int i = 0; i < arraySize; i++)
+            if(checked[i])
+                temp_count++;
+        return temp_count;
+    }
+    protected void clearButtons()
+    {
+        count = 0;
+        for(int i = 0; i < arraySize; i++)
+            checked[i] = false;
+        TextView deckCount = findViewById(R.id.deckCount);
+        CheckBox plus1 = findViewById(R.id.check_plus1);
+        plus1.setChecked(checked[0]);
+        CheckBox plus2 = findViewById(R.id.check_plus2);
+        plus2.setChecked(checked[1]);
+        CheckBox plus3 = findViewById(R.id.check_plus3);
+        plus3.setChecked(checked[2]);
+        CheckBox plus4 = findViewById(R.id.check_plus4);
+        plus4.setChecked(checked[3]);
+        CheckBox plus5 = findViewById(R.id.check_plus5);
+        plus5.setChecked(checked[4]);
+        CheckBox plus6 = findViewById(R.id.check_plus6);
+        plus6.setChecked(checked[5]);
+        CheckBox minus1 = findViewById(R.id.check_minus1);
+        minus1.setChecked(checked[6]);
+        CheckBox minus2 = findViewById(R.id.check_minus2);
+        minus2.setChecked(checked[7]);
+        CheckBox minus3 = findViewById(R.id.check_minus3);
+        minus3.setChecked(checked[8]);
+        CheckBox minus4 = findViewById(R.id.check_minus4);
+        minus4.setChecked(checked[9]);
+        CheckBox minus5 = findViewById(R.id.check_minus5);
+        minus5.setChecked(checked[10]);
+        CheckBox minus6 = findViewById(R.id.check_minus6);
+        minus6.setChecked(checked[11]);
+        CheckBox pm1 = findViewById(R.id.check_pm1);
+        pm1.setChecked(checked[12]);
+        CheckBox pm2 = findViewById(R.id.check_pm2);
+        pm2.setChecked(checked[13]);
+        CheckBox pm3 = findViewById(R.id.check_pm3);
+        pm3.setChecked(checked[14]);
+        CheckBox pm4 = findViewById(R.id.check_pm4);
+        pm4.setChecked(checked[15]);
+        CheckBox pm5 = findViewById(R.id.check_pm5);
+        pm5.setChecked(checked[16]);
+        CheckBox pm6 = findViewById(R.id.check_pm6);
+        pm6.setChecked(checked[17]);
+        //count = checkCount();
+        countText = count+"/10";
+        deckCount.setText(countText);
+        checkDone();
+    }
 }

@@ -3,7 +3,8 @@
     <string name="pazaak">Pazaak</string>
     <string name="cardLayout">Card layout</string>
     <string name="deckCount">deckCount</string>
-    <string name="done">DONE</string>
+    <string name="done_db">SAVE</string>
+	<string name="revert">REVERT</string>
 
 	<string name="contents">
 		Pazaak consists of:\n\n

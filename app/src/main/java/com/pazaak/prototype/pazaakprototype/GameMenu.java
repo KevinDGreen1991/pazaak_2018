@@ -14,6 +14,7 @@ public class GameMenu extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_menu);
+        final Bundle extras = getIntent().getExtras();
 
         final Button toSetDiff = (Button) findViewById(R.id.bEasy);
 
@@ -23,6 +24,7 @@ public class GameMenu extends AppCompatActivity
             public void onClick(View v)
             {
                 Intent iSetDiff = new Intent(GameMenu.this, SetAIDifficulty.class);
+                iSetDiff.putExtra("cards", extras.getBooleanArray("cards"));
                 GameMenu.this.startActivity(iSetDiff);
             }
         });
