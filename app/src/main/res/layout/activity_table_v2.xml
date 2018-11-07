@@ -11,8 +11,8 @@
         android:id="@+id/Slot0"
         android:layout_width="61dp"
         android:layout_height="73dp"
-        android:layout_marginStart="158dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/empty" />
@@ -41,8 +41,8 @@
         android:id="@+id/Slot3"
         android:layout_width="61dp"
         android:layout_height="73dp"
-        android:layout_marginStart="158dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Slot0"
         app:srcCompat="@drawable/empty" />
@@ -71,8 +71,8 @@
         android:id="@+id/Slot6"
         android:layout_width="61dp"
         android:layout_height="73dp"
-        android:layout_marginStart="158dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Slot3"
         app:srcCompat="@drawable/empty" />
@@ -124,5 +124,15 @@
         android:text="Player Score: "
         android:textColor="@color/brightBlue"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="110dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="12dp"
+        android:text="Opponent Score:"
+        android:textColor="@color/brightRed"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
