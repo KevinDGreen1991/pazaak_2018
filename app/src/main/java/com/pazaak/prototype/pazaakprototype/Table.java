@@ -46,7 +46,9 @@ public class Table extends AppCompatActivity
 
 
         final int[] p1Value = {0};
+        p1Value[0] = 0;
         final int[]  p2Value = {0};
+        p2Value[0] = 0;
         final boolean[] yourTurn = {true};
         final boolean[] p1Stand = {false};
         final boolean[] p2Stand = {false};
@@ -83,57 +85,25 @@ public class Table extends AppCompatActivity
 
         endTurn.setOnClickListener(new View.OnClickListener()
         {
-            //int myCards = p1CardsPlayed[0];
-            //int meh[] = {0, 0};
 
             @Override
             public void onClick(View view)
             {
-                if (p1Stand[0] == true && p2Stand[0] == false)
-                {
-                    p2Value[0] = p2Turn(p2Value[0], board2[p2CardsPlayed[0]], p2Stand[0]);
-                    //p2Value[0] = meh[0];
-                }
+
                 if (yourTurn[0] == true && p1Stand[0] == false)
                 {
                     p1Value[0] = p1Turn(p1Value[0], p1CardsPlayed[0], board1Slots);
                     p1CardsPlayed[0]++;
                     yourTurn[0] = false;
-                    p2Value[0] = p2Turn(p2Value[0], board2[p2CardsPlayed[0]], p2Stand[0]);
-                    //p2Value[0] = meh[0];
-                    if (p2Stand[0] == false)
+
+                    if (p2Value[0] < 16)
                     {
-                        switch (p2CardsPlayed[0])
-                        {
-                            case 0:
-                                board2Slots[0].setImageResource(board2[0].getImage());
-                                break;
-                            case 1:
-                                board2Slots[1].setImageResource(board2[1].getImage());
-                                break;
-                            case 2:
-                                board2Slots[2].setImageResource(board2[2].getImage());
-                                break;
-                            case 3:
-                                board2Slots[3].setImageResource(board2[3].getImage());
-                                break;
-                            case 4:
-                                board2Slots[4].setImageResource(board2[4].getImage());
-                                break;
-                            case 5:
-                                board2Slots[5].setImageResource(board2[5].getImage());
-                                break;
-                            case 6:
-                                board2Slots[6].setImageResource(board2[6].getImage());
-                                break;
-                            case 7:
-                                board2Slots[7].setImageResource(board2[7].getImage());
-                                break;
-                            case 8:
-                                board2Slots[8].setImageResource(board2[8].getImage());
-                                break;
-                        }
+                        p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
                         p2CardsPlayed[0]++;
+                    }
+                    else
+                    {
+                        p2Stand[0] = true;
                     }
                     yourTurn[0] = true;
 
@@ -150,8 +120,21 @@ public class Table extends AppCompatActivity
             public void onClick(View view)
             {
                 p1Stand[0] = true;
+                while (p1Stand[0] == true && p2Stand[0] == false)
+                {
+                    if (p2Value[0] < 16)
+                    {
+                        p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+                        p2CardsPlayed[0]++;
+                    }
+                    else
+                    {
+                        p2Stand[0] = true;
+                    }
+                }
                 checkifEnd(p1Stand[0], p2Stand[0], p1Value[0], p2Value[0]);
             }
+
 
         });
 
@@ -252,7 +235,7 @@ public class Table extends AppCompatActivity
         int returnedValue = 0;
         returnedValue = p1EndTurn(currentValue, cardsPlayed, board);
 
-        return 0;
+        return returnedValue;
     }
 
     protected int p1EndTurn(int currentValue, int cardsPlayed, ImageView board[])
@@ -265,28 +248,24 @@ public class Table extends AppCompatActivity
 
     }
 
-    protected int p2Turn(int curVal, Card cardToPlay, boolean stand)
+    protected int p2EndTurn(int curVal, int cardsPlayed, ImageView board[])
     {
 //        try
 //        {
 //            wait(1500);
 //        } catch (InterruptedException e)
 //        {
-        int p2NewValue = 0;
-        if (curVal >= 16)
-        {
-            stand = true;
-            p2NewValue = curVal;
-        }
-        p2NewValue = cardToPlay.getValue();
-        return p2NewValue + curVal;
+        Random getMainDeckCard = new Random();
+        Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
+        board[cardsPlayed].setImageResource(cardToDraw.getImage());
+        return cardToDraw.getValue() + curVal;
     }
 
     public void checkifEnd(boolean stand1, boolean stand2, int val1, int val2)
     {
-        //if (stand1 && stand2)
-        //{
-            if (val1 > val2)
+        if (stand1 && stand2)
+        {
+            if ((val1 <= 20 && val1 > val2) || (val1 <= 20 && val2 > 20))
             {
                 Context context = getApplicationContext();
                 CharSequence text = "YouWin";
@@ -295,7 +274,7 @@ public class Table extends AppCompatActivity
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             }
-            else if (val2 > val1)
+            else if ((val2 > val1 && val2 <= 20) || (val1 > 20 & val2 <= 20))
             {
                 Context context = getApplicationContext();
                 CharSequence text = "YouLose";
@@ -313,7 +292,7 @@ public class Table extends AppCompatActivity
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
             }
-        //}
+        }
     }
 
     public Card[] assignCards()
