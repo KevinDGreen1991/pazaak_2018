@@ -81,6 +81,13 @@ public class Table extends AppCompatActivity
         final boolean finalP2Stand = p2Stand[0];
         final boolean finalP2Stand1 = p2Stand[0];
 
+        //Initial Start for player 1's board
+        Card firstCard = (MainDeck[generator.nextInt(40)]);
+        board1[0] = firstCard;
+        board1Slots[0].setImageResource(firstCard.getImage());
+        p1Value[0] = firstCard.getValue();
+        p1CardsPlayed[0]++;
+
         final Button endTurn = (Button) (findViewById(R.id.bEndTurn));
 
         endTurn.setOnClickListener(new View.OnClickListener()
@@ -89,23 +96,23 @@ public class Table extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                if (p2Value[0] < 16)
+                {
+                    p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+                    p2CardsPlayed[0]++;
+                    yourTurn[0] = true;
+                }
+                else
+                {
+                    p2Stand[0] = true;
+                    yourTurn[0] = true;
+                }
 
                 if (yourTurn[0] == true && p1Stand[0] == false)
                 {
                     p1Value[0] = p1Turn(p1Value[0], p1CardsPlayed[0], board1Slots);
                     p1CardsPlayed[0]++;
                     yourTurn[0] = false;
-
-                    if (p2Value[0] < 16)
-                    {
-                        p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
-                        p2CardsPlayed[0]++;
-                    }
-                    else
-                    {
-                        p2Stand[0] = true;
-                    }
-                    yourTurn[0] = true;
 
 
                 }
@@ -176,6 +183,17 @@ public class Table extends AppCompatActivity
                 board1hand1.setImageResource(R.drawable.empty_dark);
                 p1CardsPlayed[0]++;
 
+                if (p2Value[0] < 16)
+                {
+                    p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+                    p2CardsPlayed[0]++;
+                }
+                else
+                {
+                    p2Stand[0] = true;
+                }
+                yourTurn[0] = true;
+
 
             }
         });
@@ -189,6 +207,17 @@ public class Table extends AppCompatActivity
                 p1Value[0] = p1PlayCard(p1Value[0],p1CardsPlayed[0], player1Hand[1], board1Slots);
                 board1hand2.setImageResource(R.drawable.empty_dark);
                 p1CardsPlayed[0]++;
+
+                if (p2Value[0] < 16)
+                {
+                    p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+                    p2CardsPlayed[0]++;
+                }
+                else
+                {
+                    p2Stand[0] = true;
+                }
+                yourTurn[0] = true;
 
 
             }
@@ -204,6 +233,17 @@ public class Table extends AppCompatActivity
                 board1hand3.setImageResource(R.drawable.empty_dark);
                 p1CardsPlayed[0]++;
 
+                if (p2Value[0] < 16)
+                {
+                    p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+                    p2CardsPlayed[0]++;
+                }
+                else
+                {
+                    p2Stand[0] = true;
+                }
+                yourTurn[0] = true;
+
             }
         });
 
@@ -216,6 +256,17 @@ public class Table extends AppCompatActivity
                 p1Value[0] = p1PlayCard(p1Value[0],p1CardsPlayed[0], player1Hand[3], board1Slots);
                 board1hand4.setImageResource(R.drawable.empty_dark);
                 p1CardsPlayed[0]++;
+
+                if (p2Value[0] < 16)
+                {
+                    p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+                    p2CardsPlayed[0]++;
+                }
+                else
+                {
+                    p2Stand[0] = true;
+                }
+                yourTurn[0] = true;
 
             }
         });
