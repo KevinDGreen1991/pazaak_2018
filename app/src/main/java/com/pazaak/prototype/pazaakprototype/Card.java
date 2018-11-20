@@ -26,9 +26,19 @@ public class Card {
     {
         return this.cardType;
     }
+
     public int getValue()
     {
-        return this.cardValue;
+        int cardVal = 0;
+        if (this.cardType == MINUS)
+        {
+            cardVal = (-1) * this.cardValue;
+        }
+        else
+        {
+            cardVal = this.cardValue;
+        }
+        return cardVal;
     }
     public int getImage()
     {

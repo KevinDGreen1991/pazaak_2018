@@ -295,6 +295,7 @@
         android:layout_marginStart="110dp"
         android:layout_weight="1"
         android:adjustViewBounds="true"
+        android:background="@drawable/empty_dark"
         android:contentDescription="@string/cardLayout"
         android:padding="0dp"
         android:scaleType="centerInside"

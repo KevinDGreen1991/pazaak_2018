@@ -188,16 +188,16 @@ public class Table extends AppCompatActivity
                     board1hand1.setImageResource(R.drawable.empty_dark);
                     p1CardsPlayed[0]++;
 
-                    if (p2Value[0] < 16)
-                    {
-                        p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
-                        p2CardsPlayed[0]++;
-                    }
-                    else
-                    {
-                        p2Stand[0] = true;
-                    }
-                    yourTurn[0] = true;
+//                    if (p2Value[0] < 16)
+//                    {
+//                        p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+//                        p2CardsPlayed[0]++;
+//                    }
+//                    else
+//                    {
+//                        p2Stand[0] = true;
+//                    }
+//                    yourTurn[0] = true;
 
                     p1PlayedACardThisTurn[0] = true;
                     board1hand1.setEnabled(false);
@@ -219,16 +219,16 @@ public class Table extends AppCompatActivity
                     board1hand2.setImageResource(R.drawable.empty_dark);
                     p1CardsPlayed[0]++;
 
-                    if (p2Value[0] < 16)
-                    {
-                        p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
-                        p2CardsPlayed[0]++;
-                    }
-                    else
-                    {
-                        p2Stand[0] = true;
-                    }
-                    yourTurn[0] = true;
+//                    if (p2Value[0] < 16)
+//                    {
+//                        p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+//                        p2CardsPlayed[0]++;
+//                    }
+//                    else
+//                    {
+//                        p2Stand[0] = true;
+//                    }
+//                    yourTurn[0] = true;
 
                     p1PlayedACardThisTurn[0] = true;
                     board1hand2.setEnabled(false);
@@ -250,16 +250,16 @@ public class Table extends AppCompatActivity
                     board1hand3.setImageResource(R.drawable.empty_dark);
                     p1CardsPlayed[0]++;
 
-                    if (p2Value[0] < 16)
-                    {
-                        p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
-                        p2CardsPlayed[0]++;
-                    }
-                    else
-                    {
-                        p2Stand[0] = true;
-                    }
-                    yourTurn[0] = true;
+//                    if (p2Value[0] < 16)
+//                    {
+//                        p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+//                        p2CardsPlayed[0]++;
+//                    }
+//                    else
+//                    {
+//                        p2Stand[0] = true;
+//                    }
+//                    yourTurn[0] = true;
 
                     p1PlayedACardThisTurn[0] = true;
 
@@ -281,16 +281,16 @@ public class Table extends AppCompatActivity
                     board1hand4.setImageResource(R.drawable.empty_dark);
                     p1CardsPlayed[0]++;
 
-                    if (p2Value[0] < 16)
-                    {
-                        p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
-                        p2CardsPlayed[0]++;
-                    }
-                    else
-                    {
-                        p2Stand[0] = true;
-                    }
-                    yourTurn[0] = true;
+//                    if (p2Value[0] < 16)
+//                    {
+//                        p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+//                        p2CardsPlayed[0]++;
+//                    }
+//                    else
+//                    {
+//                        p2Stand[0] = true;
+//                    }
+//                    yourTurn[0] = true;
 
                     p1PlayedACardThisTurn[0] = true;
 
@@ -330,11 +330,7 @@ public class Table extends AppCompatActivity
 
     protected int p2EndTurn(int curVal, int cardsPlayed, ImageView board[])
     {
-//        try
-//        {
-//            wait(1500);
-//        } catch (InterruptedException e)
-//        {
+        
         Random getMainDeckCard = new Random();
         Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
         board[cardsPlayed].setImageResource(cardToDraw.getImage());
