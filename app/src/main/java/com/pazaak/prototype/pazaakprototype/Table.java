@@ -174,6 +174,10 @@ public class Table extends AppCompatActivity
         //randomCardValue = generator.nextInt(board1.length);
         board1hand4.setImageResource(player1Hand[3].getImage());
 
+
+
+
+
         //Added as of Nov. 4th
 
         //TODO fix hand card 1
@@ -184,6 +188,8 @@ public class Table extends AppCompatActivity
             {
                 if (p1PlayedACardThisTurn[0] == false)
                 {
+
+
                     p1Value[0] = p1PlayCard(p1Value[0], p1CardsPlayed[0], player1Hand[0], board1Slots);
                     board1hand1.setImageResource(R.drawable.empty_dark);
                     p1CardsPlayed[0]++;
@@ -305,6 +311,12 @@ public class Table extends AppCompatActivity
     protected int p1PlayCard(int currentValue, int cardsPlayed, Card cardToPlay, ImageView board[])
     {
         board[cardsPlayed].setImageResource(cardToPlay.getImage());
+
+        if (cardToPlay.getType() == Card.PM)
+        {
+            PlusMinusPrompt myPrompt = new PlusMinusPrompt();
+            myPrompt.show(getFragmentManager(), "StringThing");
+        }
 
         return currentValue + cardToPlay.getValue();
     }

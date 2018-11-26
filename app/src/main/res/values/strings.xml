@@ -55,5 +55,8 @@ How to Win:\n
 	<string name="walkthrough">Walkthrough</string>
     <string name="stand">Stand</string>
 	<string name="end_turn">End Turn</string>
+	<string name="plusPrompt">+</string>
+	<string name="minusPrompt">-</string>
+	<string name="pmPrompt">Plus or Minus</string>
 
 </resources>
