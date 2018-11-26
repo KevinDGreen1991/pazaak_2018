@@ -8,6 +8,9 @@ import android.widget.Button;
 
 public class SetAIDifficulty extends AppCompatActivity
 {
+    public final int EASY = 0;
+    public final int MEDIUM = 1;
+    public final int HARD = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -26,6 +29,7 @@ public class SetAIDifficulty extends AppCompatActivity
                 /*
                 Intent goingTo = new Intent(SetAIDifficulty.this, Table.class);
                 goingTo.putExtra("cards", extras.getBooleanArray("cards"));
+                goingTo.putExtra("diff", MEDIUM);
                 SetAIDifficulty.this.startActivity(goingTo);
                 */
 
@@ -43,6 +47,7 @@ public class SetAIDifficulty extends AppCompatActivity
 
                 Intent goingTo = new Intent(SetAIDifficulty.this, Table.class);
                 goingTo.putExtra("cards", extras.getBooleanArray("cards"));
+                goingTo.putExtra("diff", HARD);
                 SetAIDifficulty.this.startActivity(goingTo);
             }
         });
@@ -58,6 +63,7 @@ public class SetAIDifficulty extends AppCompatActivity
 
                 Intent goingTo = new Intent(SetAIDifficulty.this, Table.class);
                 goingTo.putExtra("cards", extras.getBooleanArray("cards"));
+                goingTo.putExtra("diff", EASY);
                 SetAIDifficulty.this.startActivity(goingTo);
             }
         });
