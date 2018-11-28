@@ -8,6 +8,16 @@ import android.os.Bundle;
 
 public class PlusMinusPrompt extends DialogFragment
 {
+    private int val;
+    AlertDialog myDiag;
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        myDiag = (AlertDialog) onCreateDialog(savedInstanceState);
+        //myDiag.show();
+    }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
@@ -15,15 +25,25 @@ public class PlusMinusPrompt extends DialogFragment
         builder.setMessage(R.string.pmPrompt)
                 .setPositiveButton(R.string.plusPrompt, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // FIRE ZE MISSILES!
+                        val = Card.PLUS;
+
                     }
                 })
                 .setNegativeButton(R.string.minusPrompt, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // User cancelled the dialog
+                       val = Card.MINUS;
                     }
                 });
         // Create the AlertDialog object and return it
         return builder.create();
+    }
+
+    public int returnType()
+    {
+        return val;
+    }
+    public void shower()
+    {
+        myDiag.show();
     }
 }

@@ -311,14 +311,30 @@ public class Table extends AppCompatActivity
     protected int p1PlayCard(int currentValue, int cardsPlayed, Card cardToPlay, ImageView board[])
     {
         board[cardsPlayed].setImageResource(cardToPlay.getImage());
+        int val = 0;
 
         if (cardToPlay.getType() == Card.PM)
         {
-            PlusMinusPrompt myPrompt = new PlusMinusPrompt();
-            myPrompt.show(getFragmentManager(), "StringThing");
+            //Bundle newBundy = new Bundle();
+            //PlusMinusPrompt myPrompt = new PlusMinusPrompt();
+            //myPrompt.shower();
+            //val = myPrompt.returnType();
+            //System.out.println(val);
+            if (val == Card.PLUS)
+            {
+                val = cardToPlay.getValue();
+            }
+            else
+            {
+                val = cardToPlay.getValue() * -1;
+            }
+        }
+        else
+        {
+            val = cardToPlay.getValue();
         }
 
-        return currentValue + cardToPlay.getValue();
+        return currentValue + val;
     }
 
     //Returns the new value of the board
