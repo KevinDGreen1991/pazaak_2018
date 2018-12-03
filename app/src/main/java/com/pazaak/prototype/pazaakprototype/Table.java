@@ -1,7 +1,11 @@
 package com.pazaak.prototype.pazaakprototype;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Looper;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,12 +30,15 @@ public class Table extends AppCompatActivity
     final int END_TURN = 0;
     final int STAND = 1;
     final int PLAY_CARD = 2;
-    Card[] MainDeck = new Card[40];
+    //Card[] MainDeck = new Card[40];
+    List<Card> MainDeck;
+    final int MAX_CARDS_IN_DECK = 40;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        this.MainDeck = new ArrayList<Card>();
 
         setContentView(R.layout.activity_table);
         final int[] p1CardsPlayed = {0};
@@ -55,20 +62,21 @@ public class Table extends AppCompatActivity
 
         final boolean[] p1PlayedACardThisTurn = {false};
 
-        for (int i = 0; i < MainDeck.length; i++)
+        for (int i = 0; i < MAX_CARDS_IN_DECK; i++)
         {
-            MainDeck[i] = new Card(Card.MAIN, (i + 1) % 11);
+            MainDeck.add(new Card(Card.MAIN, (i + 1) % 11));
         }
 
-        for (int i = 0; i < board1.length; i++)
-        {
-            board1[i] = MainDeck[generator.nextInt(40)];
-        }
-
-        for (int i = 0; i < board2.length; i++)
-        {
-            board2[i] = MainDeck[generator.nextInt(40)];
-        }
+//        for (int i = 0; i < board1.length; i++)
+//        {
+//            //board1[i] = MainDeck[generator.nextInt(40)];
+//
+//        }
+//
+//        for (int i = 0; i < board2.length; i++)
+//        {
+//            board2[i] = MainDeck[generator.nextInt(40)];
+//        }
 
         final ImageView board1Slots[] = {findViewById(R.id.p1Slot0), (findViewById(R.id.p1Slot1)), findViewById(R.id.p1Slot2), findViewById(R.id.p1Slot3), findViewById(R.id.p1Slot4),
                 findViewById(R.id.p1Slot5), findViewById(R.id.p1Slot6), findViewById(R.id.p1Slot7), findViewById(R.id.p1Slot8)};
@@ -84,7 +92,7 @@ public class Table extends AppCompatActivity
         final boolean finalP2Stand1 = p2Stand[0];
 
         //Initial Start for player 1's board
-        Card firstCard = (MainDeck[generator.nextInt(40)]);
+        Card firstCard = (MainDeck.remove(generator.nextInt(this.MainDeck.size())));
         board1[0] = firstCard;
         board1Slots[0].setImageResource(firstCard.getImage());
         p1Value[0] = firstCard.getValue();
@@ -315,12 +323,13 @@ public class Table extends AppCompatActivity
 
         if (cardToPlay.getType() == Card.PM)
         {
-            //Bundle newBundy = new Bundle();
             //PlusMinusPrompt myPrompt = new PlusMinusPrompt();
             //myPrompt.shower();
-            //val = myPrompt.returnType();
-            //System.out.println(val);
-            if (val == Card.PLUS)
+            int type;
+            type = PMType();
+            //type = myPrompt.returnType();
+            System.out.println("Card Value Type" + type);
+            if (type == Card.PLUS)
             {
                 val = cardToPlay.getValue();
             }
@@ -337,6 +346,47 @@ public class Table extends AppCompatActivity
         return currentValue + val;
     }
 
+    protected void handleMessage(Message mesg)
+    {
+        throw new RuntimeException();
+    }
+    protected int PMType()
+    {
+        final int val[] = {0};
+        AlertDialog.Builder alterDialogBuilder = new AlertDialog.Builder(this);
+        alterDialogBuilder.setMessage(R.string.pmPrompt);
+        alterDialogBuilder.setPositiveButton(R.string.plusPrompt, new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                val[0] = Card.PLUS;
+                handleMessage(null);
+            }
+        });
+        alterDialogBuilder.setNegativeButton(R.string.minusPrompt, new DialogInterface.OnClickListener()
+        {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+                val[0] = Card.MINUS;
+                handleMessage(null);
+            }
+        });
+        AlertDialog myDiag;
+        myDiag = alterDialogBuilder.create();
+        myDiag.show();
+        try
+        {
+            Looper.loop();
+        }
+        catch (RuntimeException e)
+        {
+            //Empty here
+        }
+        return val[0];
+    }
+
     //Returns the new value of the board
     protected int p1Turn(int currentValue, int cardsPlayed, ImageView board[])
     {
@@ -349,7 +399,8 @@ public class Table extends AppCompatActivity
     protected int p1EndTurn(int currentValue, int cardsPlayed, ImageView board[])
     {
         Random getMainDeckCard = new Random();
-        Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
+        //Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
+        Card cardToDraw = MainDeck.remove(getMainDeckCard.nextInt(MainDeck.size()));
         board[cardsPlayed].setImageResource(cardToDraw.getImage());
         return currentValue + cardToDraw.getValue();
 
@@ -360,7 +411,8 @@ public class Table extends AppCompatActivity
     {
         
         Random getMainDeckCard = new Random();
-        Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
+        //Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
+        Card cardToDraw = MainDeck.remove(getMainDeckCard.nextInt(MainDeck.size()));
         board[cardsPlayed].setImageResource(cardToDraw.getImage());
         return cardToDraw.getValue() + curVal;
     }
