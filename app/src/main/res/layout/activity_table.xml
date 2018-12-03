@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+    android:background="@drawable/bg2_2"
     tools:context=".Table">
 
 
@@ -14,7 +14,7 @@
         android:id="@+id/p1Slot0"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="84dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/cardLayout"
         app:layout_constraintBottom_toTopOf="@+id/p1Slot3"
@@ -57,7 +57,7 @@
         android:id="@+id/p1Slot3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="84dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:contentDescription="@string/cardLayout"
@@ -99,7 +99,7 @@
         android:id="@+id/p1Slot6"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="84dp"
         android:layout_marginBottom="93dp"
         android:contentDescription="@string/cardLayout"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -350,23 +350,24 @@
 
     <TextView
         android:id="@+id/p1Score"
-        android:layout_width="wrap_content"
+        android:layout_width="78dp"
         android:layout_height="35dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
-        android:text="P1Score"
+        android:layout_marginTop="310dp"
         android:fontFamily="@font/verdanab"
+        android:text="P1 Score: "
         android:textColor="@color/brightBlue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/p2Score"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginTop="16dp"
-        android:text="P2Score"
-        android:textColor="@color/brightRed"
+        android:layout_width="114dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="310dp"
         android:fontFamily="@font/verdanab"
+        android:text="P2 Score: "
+        android:textColor="@color/brightRed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
