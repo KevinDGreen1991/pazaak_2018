@@ -28,7 +28,8 @@
             android:name=".DeckBuilder"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".TutorialMenu" />
+            android:name=".TutorialMenu"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".SetAIDifficulty"
             android:screenOrientation="landscape" />
