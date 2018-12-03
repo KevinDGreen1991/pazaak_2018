@@ -117,7 +117,14 @@ public class Table extends AppCompatActivity
                 {
                     p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
                     p2Count = Integer.toString(p2Value[0]);
-                    p2CurrentScore.setText(p2Count);
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            p2CurrentScore.setText(p2Count);
+                        }
+                    } , 1000);
                     p2CardsPlayed[0]++;
                     yourTurn[0] = true;
                 }
@@ -131,7 +138,17 @@ public class Table extends AppCompatActivity
                 {
                     p1Value[0] = p1Turn(p1Value[0], p1CardsPlayed[0], board1Slots);
                     p1Count = Integer.toString(p1Value[0]);
-                    p1CurrentScore.setText(p1Count);
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            p1CurrentScore.setText(p1Count);
+                        }
+                    } , 2000);
+
+
+
                     p1CardsPlayed[0]++;
                     yourTurn[0] = false;
 
@@ -155,7 +172,13 @@ public class Table extends AppCompatActivity
                     {
                         p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
                         p2Count = Integer.toString(p2Value[0]);
-                        p2CurrentScore.setText(p2Count);
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                p2CurrentScore.setText(p2Count);
+                            }
+                        } , 1000);
                         p2CardsPlayed[0]++;
                     }
                     else
@@ -213,6 +236,7 @@ public class Table extends AppCompatActivity
 
                     p1Value[0] = p1PlayCard(p1Value[0], p1CardsPlayed[0], player1Hand[0], board1Slots);
                     p1Count = Integer.toString(p1Value[0]);
+
                     p1CurrentScore.setText(p1Count);
                     board1hand1.setImageResource(R.drawable.empty_dark);
                     p1CardsPlayed[0]++;
