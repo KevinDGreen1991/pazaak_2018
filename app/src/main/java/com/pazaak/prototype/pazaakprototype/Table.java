@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedWriter;
@@ -27,6 +28,7 @@ public class Table extends AppCompatActivity
     final int STAND = 1;
     final int PLAY_CARD = 2;
     Card[] MainDeck = new Card[40];
+    String p1Count, p2Count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -83,11 +85,16 @@ public class Table extends AppCompatActivity
         final boolean finalP2Stand = p2Stand[0];
         final boolean finalP2Stand1 = p2Stand[0];
 
+        final TextView p1CurrentScore = findViewById(R.id.p1ScoreCounter);
+        final TextView p2CurrentScore = findViewById(R.id.p2ScoreCounter);
+
         //Initial Start for player 1's board
         Card firstCard = (MainDeck[generator.nextInt(40)]);
         board1[0] = firstCard;
         board1Slots[0].setImageResource(firstCard.getImage());
         p1Value[0] = firstCard.getValue();
+        p1Count = Integer.toString(p1Value[0]);
+        p1CurrentScore.setText(p1Count);
         p1CardsPlayed[0]++;
 
         final Button endTurn = (Button) (findViewById(R.id.bEndTurn));
@@ -101,6 +108,8 @@ public class Table extends AppCompatActivity
                 if (p2Value[0] < 16)
                 {
                     p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+                    p2Count = Integer.toString(p2Value[0]);
+                    p2CurrentScore.setText(p2Count);
                     p2CardsPlayed[0]++;
                     yourTurn[0] = true;
                 }
@@ -113,6 +122,8 @@ public class Table extends AppCompatActivity
                 if (yourTurn[0] == true && p1Stand[0] == false)
                 {
                     p1Value[0] = p1Turn(p1Value[0], p1CardsPlayed[0], board1Slots);
+                    p1Count = Integer.toString(p1Value[0]);
+                    p1CurrentScore.setText(p1Count);
                     p1CardsPlayed[0]++;
                     yourTurn[0] = false;
 
@@ -135,6 +146,8 @@ public class Table extends AppCompatActivity
                     if (p2Value[0] < 16)
                     {
                         p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+                        p2Count = Integer.toString(p2Value[0]);
+                        p2CurrentScore.setText(p2Count);
                         p2CardsPlayed[0]++;
                     }
                     else
@@ -191,6 +204,8 @@ public class Table extends AppCompatActivity
 
 
                     p1Value[0] = p1PlayCard(p1Value[0], p1CardsPlayed[0], player1Hand[0], board1Slots);
+                    p1Count = Integer.toString(p1Value[0]);
+                    p1CurrentScore.setText(p1Count);
                     board1hand1.setImageResource(R.drawable.empty_dark);
                     p1CardsPlayed[0]++;
 
@@ -222,6 +237,8 @@ public class Table extends AppCompatActivity
                 if (p1PlayedACardThisTurn[0] == false)
                 {
                     p1Value[0] = p1PlayCard(p1Value[0], p1CardsPlayed[0], player1Hand[1], board1Slots);
+                    p1Count = Integer.toString(p1Value[0]);
+                    p1CurrentScore.setText(p1Count);
                     board1hand2.setImageResource(R.drawable.empty_dark);
                     p1CardsPlayed[0]++;
 
@@ -253,6 +270,8 @@ public class Table extends AppCompatActivity
                 if (p1PlayedACardThisTurn[0] == false)
                 {
                     p1Value[0] = p1PlayCard(p1Value[0], p1CardsPlayed[0], player1Hand[2], board1Slots);
+                    p1Count = Integer.toString(p1Value[0]);
+                    p1CurrentScore.setText(p1Count);
                     board1hand3.setImageResource(R.drawable.empty_dark);
                     p1CardsPlayed[0]++;
 
@@ -284,6 +303,8 @@ public class Table extends AppCompatActivity
                 if (p1PlayedACardThisTurn[0] == false)
                 {
                     p1Value[0] = p1PlayCard(p1Value[0], p1CardsPlayed[0], player1Hand[3], board1Slots);
+                    p1Count = Integer.toString(p1Value[0]);
+                    p1CurrentScore.setText(p1Count);
                     board1hand4.setImageResource(R.drawable.empty_dark);
                     p1CardsPlayed[0]++;
 

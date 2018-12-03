@@ -47,7 +47,7 @@ public class MainMenu extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent iTutorial = new Intent(MainMenu.this, TutorialMenu.class);
+                Intent iTutorial = new Intent(MainMenu.this, Walkthrough.class);
                 MainMenu.this.startActivity(iTutorial);
             }
         });
