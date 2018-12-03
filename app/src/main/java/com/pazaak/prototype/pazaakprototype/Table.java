@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -416,6 +417,9 @@ public class Table extends AppCompatActivity
         return returnedValue;
     }
 
+       /*
+    * Original Code
+    *
     protected int p1EndTurn(int currentValue, int cardsPlayed, ImageView board[])
     {
         Random getMainDeckCard = new Random();
@@ -425,18 +429,65 @@ public class Table extends AppCompatActivity
         return currentValue + cardToDraw.getValue();
 
 
+    } */
+
+    protected int p1EndTurn(int currentValue, final int cardsPlayed, final ImageView board[])
+    {
+        Random getMainDeckCard = new Random();
+        //Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
+        final Card cardToDraw = MainDeck.remove(getMainDeckCard.nextInt(MainDeck.size()));
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                board[cardsPlayed].setImageResource(cardToDraw.getImage());
+            }
+        }, 2000);
+
+        return currentValue + cardToDraw.getValue();
+
+
     }
 
+    /*
+    * Original Code
+    *
     protected int p2EndTurn(int curVal, int cardsPlayed, ImageView board[])
     {
-        
+
+
         Random getMainDeckCard = new Random();
         //Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
         Card cardToDraw = MainDeck.remove(getMainDeckCard.nextInt(MainDeck.size()));
         board[cardsPlayed].setImageResource(cardToDraw.getImage());
         return cardToDraw.getValue() + curVal;
-    }
+    } */
 
+    protected int p2EndTurn(int curVal, final int cardsPlayed, final ImageView board[])
+    {
+
+        /*
+        Random getMainDeckCard = new Random();
+        //Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
+        Card cardToDraw = MainDeck.remove(getMainDeckCard.nextInt(MainDeck.size()));
+        board[cardsPlayed].setImageResource(cardToDraw.getImage());
+        return cardToDraw.getValue() + curVal; */
+
+        final Handler handler = new Handler();
+        final Random getMainDeckCard = new Random();
+        final Card cardToDraw = MainDeck.remove(getMainDeckCard.nextInt(MainDeck.size()));
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
+                board[cardsPlayed].setImageResource(cardToDraw.getImage());
+            }
+        }, 1000);
+
+        return cardToDraw.getValue() + curVal;
+    }
     public void checkifEnd(boolean stand1, boolean stand2, int val1, int val2)
     {
         if (stand1 && stand2)
