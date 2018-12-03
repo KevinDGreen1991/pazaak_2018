@@ -26,14 +26,11 @@ public class SetAIDifficulty extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                /*
                 Intent goingTo = new Intent(SetAIDifficulty.this, Table.class);
                 goingTo.putExtra("cards", extras.getBooleanArray("cards"));
                 goingTo.putExtra("diff", MEDIUM);
                 SetAIDifficulty.this.startActivity(goingTo);
-                */
 
-                setContentView(R.layout.activity_table_v2);
             }
         });
 
