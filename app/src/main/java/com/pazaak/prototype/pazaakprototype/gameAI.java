@@ -3,9 +3,9 @@ import java.util.List;
 public class gameAI
 {
     private int difficulty;
-    public static final int EASY = 0;
+    public static final int EASY = 2;
     public static final int MEDIUM = 1;
-    public static final int HARD = 2;
+    public static final int HARD = 0;
     private List<Card> aiDeck;
     public gameAI(int aiDifficulty)
     {
@@ -19,7 +19,7 @@ public class gameAI
         //if(average + aiScore <= 20)
             //return true;
 
-        return average + aiScore > 20;
+        return (average + aiScore - difficulty) > 20;
     }
     private float getDeckAverage(List<Card> deck)
     {
