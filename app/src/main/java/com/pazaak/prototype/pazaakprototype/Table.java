@@ -522,8 +522,17 @@ public class Table extends AppCompatActivity
                 CharSequence text = "YouWin";
                 int duration = Toast.LENGTH_SHORT;
 
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                final Toast toast = Toast.makeText(context, text, duration);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        toast.show();
+                    }
+                },1000);
+
+
             }
             else if ((val2 > val1 && val2 <= 20) || (val1 > 20 & val2 <= 20))
             {
@@ -531,8 +540,16 @@ public class Table extends AppCompatActivity
                 CharSequence text = "YouLose";
                 int duration = Toast.LENGTH_SHORT;
 
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                final Toast toast = Toast.makeText(context, text, duration);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        toast.show();
+                    }
+                }, 1000);
+
             }
             else
             {
@@ -540,8 +557,16 @@ public class Table extends AppCompatActivity
                 CharSequence text = "Tie";
                 int duration = Toast.LENGTH_SHORT;
 
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                final Toast toast = Toast.makeText(context, text, duration);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        toast.show();
+                    }
+                }, 1000);
+
             }
         }
     }
