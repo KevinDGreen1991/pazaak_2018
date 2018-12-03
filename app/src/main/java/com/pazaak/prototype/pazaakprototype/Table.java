@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -116,7 +117,14 @@ public class Table extends AppCompatActivity
                 {
                     p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
                     p2Count = Integer.toString(p2Value[0]);
-                    p2CurrentScore.setText(p2Count);
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            p2CurrentScore.setText(p2Count);
+                        }
+                    } , 1000);
                     p2CardsPlayed[0]++;
                     yourTurn[0] = true;
                 }
@@ -130,7 +138,17 @@ public class Table extends AppCompatActivity
                 {
                     p1Value[0] = p1Turn(p1Value[0], p1CardsPlayed[0], board1Slots);
                     p1Count = Integer.toString(p1Value[0]);
-                    p1CurrentScore.setText(p1Count);
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            p1CurrentScore.setText(p1Count);
+                        }
+                    } , 2000);
+
+
+
                     p1CardsPlayed[0]++;
                     yourTurn[0] = false;
 
@@ -154,7 +172,13 @@ public class Table extends AppCompatActivity
                     {
                         p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
                         p2Count = Integer.toString(p2Value[0]);
-                        p2CurrentScore.setText(p2Count);
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                p2CurrentScore.setText(p2Count);
+                            }
+                        } , 1000);
                         p2CardsPlayed[0]++;
                     }
                     else
@@ -212,6 +236,7 @@ public class Table extends AppCompatActivity
 
                     p1Value[0] = p1PlayCard(p1Value[0], p1CardsPlayed[0], player1Hand[0], board1Slots);
                     p1Count = Integer.toString(p1Value[0]);
+
                     p1CurrentScore.setText(p1Count);
                     board1hand1.setImageResource(R.drawable.empty_dark);
                     p1CardsPlayed[0]++;
@@ -416,6 +441,9 @@ public class Table extends AppCompatActivity
         return returnedValue;
     }
 
+       /*
+    * Original Code
+    *
     protected int p1EndTurn(int currentValue, int cardsPlayed, ImageView board[])
     {
         Random getMainDeckCard = new Random();
@@ -425,18 +453,65 @@ public class Table extends AppCompatActivity
         return currentValue + cardToDraw.getValue();
 
 
+    } */
+
+    protected int p1EndTurn(int currentValue, final int cardsPlayed, final ImageView board[])
+    {
+        Random getMainDeckCard = new Random();
+        //Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
+        final Card cardToDraw = MainDeck.remove(getMainDeckCard.nextInt(MainDeck.size()));
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                board[cardsPlayed].setImageResource(cardToDraw.getImage());
+            }
+        }, 2000);
+
+        return currentValue + cardToDraw.getValue();
+
+
     }
 
+    /*
+    * Original Code
+    *
     protected int p2EndTurn(int curVal, int cardsPlayed, ImageView board[])
     {
-        
+
+
         Random getMainDeckCard = new Random();
         //Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
         Card cardToDraw = MainDeck.remove(getMainDeckCard.nextInt(MainDeck.size()));
         board[cardsPlayed].setImageResource(cardToDraw.getImage());
         return cardToDraw.getValue() + curVal;
-    }
+    } */
 
+    protected int p2EndTurn(int curVal, final int cardsPlayed, final ImageView board[])
+    {
+
+        /*
+        Random getMainDeckCard = new Random();
+        //Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
+        Card cardToDraw = MainDeck.remove(getMainDeckCard.nextInt(MainDeck.size()));
+        board[cardsPlayed].setImageResource(cardToDraw.getImage());
+        return cardToDraw.getValue() + curVal; */
+
+        final Handler handler = new Handler();
+        final Random getMainDeckCard = new Random();
+        final Card cardToDraw = MainDeck.remove(getMainDeckCard.nextInt(MainDeck.size()));
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //Card cardToDraw = MainDeck[(getMainDeckCard.nextInt(40) + 1) % 11];
+                board[cardsPlayed].setImageResource(cardToDraw.getImage());
+            }
+        }, 1000);
+
+        return cardToDraw.getValue() + curVal;
+    }
     public void checkifEnd(boolean stand1, boolean stand2, int val1, int val2)
     {
         if (stand1 && stand2)
@@ -447,8 +522,17 @@ public class Table extends AppCompatActivity
                 CharSequence text = "YouWin";
                 int duration = Toast.LENGTH_SHORT;
 
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                final Toast toast = Toast.makeText(context, text, duration);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        toast.show();
+                    }
+                },1000);
+
+
             }
             else if ((val2 > val1 && val2 <= 20) || (val1 > 20 & val2 <= 20))
             {
@@ -456,8 +540,16 @@ public class Table extends AppCompatActivity
                 CharSequence text = "YouLose";
                 int duration = Toast.LENGTH_SHORT;
 
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                final Toast toast = Toast.makeText(context, text, duration);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        toast.show();
+                    }
+                }, 1000);
+
             }
             else
             {
@@ -465,8 +557,16 @@ public class Table extends AppCompatActivity
                 CharSequence text = "Tie";
                 int duration = Toast.LENGTH_SHORT;
 
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                final Toast toast = Toast.makeText(context, text, duration);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        toast.show();
+                    }
+                }, 1000);
+
             }
         }
     }
