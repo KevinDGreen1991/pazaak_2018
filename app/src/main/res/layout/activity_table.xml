@@ -352,23 +352,54 @@
         android:id="@+id/p1Score"
         android:layout_width="78dp"
         android:layout_height="35dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="310dp"
+        android:layout_marginLeft="105dp"
         android:fontFamily="@font/verdanab"
         android:text="P1 Score: "
         android:textColor="@color/brightBlue"
+        app:layout_constraintBottom_toTopOf="@+id/bStand"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+         />
 
     <TextView
         android:id="@+id/p2Score"
-        android:layout_width="114dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="310dp"
+        android:layout_width="78dp"
+        android:layout_height="35dp"
+        android:layout_marginRight="105dp"
         android:fontFamily="@font/verdanab"
         android:text="P2 Score: "
         android:textColor="@color/brightRed"
+        app:layout_constraintBottom_toTopOf="@+id/bEndTurn"
+        app:layout_constraintLeft_toRightOf="@+id/p1Hand4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
+    <TextView
+        android:id="@+id/p1ScoreCounter"
+        android:layout_marginStart="20dp"
+        android:paddingBottom="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:fontFamily="@font/verdanab"
+        android:textColor="@color/brightBlue"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/bStand"
+
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="51dp" />
+    <TextView
+        android:id="@+id/p2ScoreCounter"
+        android:layout_marginEnd="30dp"
+        android:paddingBottom="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:fontFamily="@font/verdanab"
+        android:textColor="@color/brightRed"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/bEndTurn"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="51dp" />
 
 </android.support.constraint.ConstraintLayout>
