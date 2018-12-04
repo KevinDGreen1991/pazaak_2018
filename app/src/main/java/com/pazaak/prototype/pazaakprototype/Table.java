@@ -32,6 +32,8 @@ public class Table extends AppCompatActivity
     final int END_TURN = 0;
     final int STAND = 1;
     final int PLAY_CARD = 2;
+    private final static int ROUNDS_NEEDED_TO_WIN = 3;
+    private int roundsWon[];
     //Card[] MainDeck = new Card[40];
     List<Card> MainDeck;
     final int MAX_CARDS_IN_DECK = 40;
@@ -43,6 +45,9 @@ public class Table extends AppCompatActivity
         super.onCreate(savedInstanceState);
         this.MainDeck = new ArrayList<Card>();
 
+        this.roundsWon = new int[2];
+        this.roundsWon[0] = 0;
+        this.roundsWon[1] = 0;
         setContentView(R.layout.activity_table);
         final int[] p1CardsPlayed = {0};
         final int[] p2CardsPlayed = {0};
@@ -50,7 +55,7 @@ public class Table extends AppCompatActivity
         final Card player1Hand[] = assignCards();
 
 
-        Random generator = new Random();
+        final Random generator = new Random();
         final Card[] board1 = new Card[9];
         final Card[] board2 = new Card[9];
 
@@ -186,7 +191,48 @@ public class Table extends AppCompatActivity
                         p2Stand[0] = true;
                     }
                 }
-                checkifEnd(p1Stand[0], p2Stand[0], p1Value[0], p2Value[0]);
+                boolean shouldReset = checkifEnd(p1Stand[0], p2Stand[0], p1Value[0], p2Value[0]);
+                if (shouldReset == true)
+                {
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            for (int i = 0; i < board1Slots.length; i++)
+                            {
+                                board1Slots[i].setImageResource(R.drawable.empty);
+                                board2Slots[i].setImageResource(R.drawable.empty);
+
+                            }
+                            MainDeck.clear();
+                            for (int i = 0; i < MAX_CARDS_IN_DECK; i++)
+                            {
+                                MainDeck.add(new Card(Card.MAIN, (i + 1) % 11));
+                            }
+                            p1Value[0] = 0;
+                            p2Value[0] = 0;
+                            p1Stand[0] = false;
+                            p2Stand[0] = false;
+                            p1CardsPlayed[0] = 0;
+                            p2CardsPlayed[0] = 0;
+                            for (int i = 0; i < board1.length; i++)
+                            {
+                                board1[i] = null;
+                                board2[i] = null;
+                            }
+
+                            board1[0] = MainDeck.remove(generator.nextInt(MainDeck.size()));
+                            board1Slots[0].setImageResource(board1[0].getImage());
+                            p1CardsPlayed[0]++;
+                            p1Value[0] = board1[0].getValue();
+                            p1CurrentScore.setText(Integer.toString(p1Value[0]));
+                            p2CurrentScore.setText(Integer.toString(p2Value[0]));
+                        }
+                    },4000);
+
+
+
+                }
             }
 
 
@@ -512,8 +558,9 @@ public class Table extends AppCompatActivity
 
         return cardToDraw.getValue() + curVal;
     }
-    public void checkifEnd(boolean stand1, boolean stand2, int val1, int val2)
+    public boolean checkifEnd(boolean stand1, boolean stand2, int val1, int val2)
     {
+        boolean shouldReset = false;
         if (stand1 && stand2)
         {
             if ((val1 <= 20 && val1 > val2) || (val1 <= 20 && val2 > 20))
@@ -531,6 +578,7 @@ public class Table extends AppCompatActivity
                         toast.show();
                     }
                 },1000);
+                this.roundsWon[0]++;
 
 
             }
@@ -549,6 +597,7 @@ public class Table extends AppCompatActivity
                         toast.show();
                     }
                 }, 1000);
+                this.roundsWon[1]++;
 
             }
             else
@@ -568,7 +617,44 @@ public class Table extends AppCompatActivity
                 }, 1000);
 
             }
+            if (roundsWon[0] >= ROUNDS_NEEDED_TO_WIN)
+            {
+                Context endContext = getApplicationContext();
+                CharSequence winMatchText = "You've Won the match!";
+                int duration = Toast.LENGTH_LONG;
+
+                final Toast toast = Toast.makeText(endContext, winMatchText, duration);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        toast.show();
+                    }
+                }, 1000);
+            }
+            else if (roundsWon[1] >= ROUNDS_NEEDED_TO_WIN)
+            {
+                Context endContext = getApplicationContext();
+                CharSequence loseMatchText = "You've Lost the match.";
+                int duration = Toast.LENGTH_LONG;
+
+                final Toast toast = Toast.makeText(endContext, loseMatchText, duration);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        toast.show();
+                    }
+                }, 1000);
+            }
+            else
+            {
+                shouldReset = true;
+            }
         }
+        return shouldReset;
     }
 
     public Card[] assignCards()
