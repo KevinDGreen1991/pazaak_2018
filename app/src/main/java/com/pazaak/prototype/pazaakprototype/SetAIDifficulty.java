@@ -28,7 +28,7 @@ public class SetAIDifficulty extends AppCompatActivity
             {
                 Intent goingTo = new Intent(SetAIDifficulty.this, Table.class);
                 goingTo.putExtra("cards", extras.getBooleanArray("cards"));
-                goingTo.putExtra("diff", gameAI.MEDIUM);
+                goingTo.putExtra("diff", GameAI.MEDIUM);
                 SetAIDifficulty.this.startActivity(goingTo);
 
             }
@@ -44,7 +44,7 @@ public class SetAIDifficulty extends AppCompatActivity
 
                 Intent goingTo = new Intent(SetAIDifficulty.this, Table.class);
                 goingTo.putExtra("cards", extras.getBooleanArray("cards"));
-                goingTo.putExtra("diff", gameAI.HARD);
+                goingTo.putExtra("diff", GameAI.HARD);
                 SetAIDifficulty.this.startActivity(goingTo);
             }
         });
@@ -60,7 +60,7 @@ public class SetAIDifficulty extends AppCompatActivity
 
                 Intent goingTo = new Intent(SetAIDifficulty.this, Table.class);
                 goingTo.putExtra("cards", extras.getBooleanArray("cards"));
-                goingTo.putExtra("diff", gameAI.EASY);
+                goingTo.putExtra("diff", GameAI.EASY);
                 SetAIDifficulty.this.startActivity(goingTo);
             }
         });

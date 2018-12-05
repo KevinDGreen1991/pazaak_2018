@@ -32,7 +32,7 @@ public class Table extends AppCompatActivity
     final int END_TURN = 0;
     final int STAND = 1;
     final int PLAY_CARD = 2;
-    private gameAI aiForGame;
+    private GameAI aiForGame;
     private final static int ROUNDS_NEEDED_TO_WIN = 3;
     private int roundsWon[];
     //Card[] MainDeck = new Card[40];
@@ -45,7 +45,7 @@ public class Table extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         this.MainDeck = new ArrayList<Card>();
-        this.aiForGame = new gameAI(setDiff());
+        this.aiForGame = new GameAI(setDiff());
         this.roundsWon = new int[2];
         this.roundsWon[0] = 0;
         this.roundsWon[1] = 0;
@@ -133,7 +133,7 @@ public class Table extends AppCompatActivity
                     {
                         if (p2CardToPlay.getType() == Card.PM)
                         {
-                            if (aiForGame.choosePlusOrMinus(p2Value[0], p2CardToPlay) == gameAI.PLUS)
+                            if (aiForGame.choosePlusOrMinus(p2Value[0], p2CardToPlay) == GameAI.PLUS)
                             {
                                 p2Value[0] += p2CardToPlay.getValue();
                             }
@@ -142,10 +142,16 @@ public class Table extends AppCompatActivity
                                 p2Value[0] += p2CardToPlay.getValue() * -1;
                             }
                         }
+                        else
+                        {
+                            p2Value[0] += p2CardToPlay.getValue();
+                        }
                         board2Slots[p2CardsPlayed[0]].setImageResource(p2CardToPlay.getImage());
                         p2CardsPlayed[0]++;
                     }
                     p2Stand[0] = aiForGame.shouldStand(p2Value[0], MainDeck);
+                    p2Count = Integer.toString(p2Value[0]);
+                    p2CurrentScore.setText(p2Count);
                     yourTurn[0] = true;
                 }
                 else
