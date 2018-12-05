@@ -109,18 +109,20 @@ public class Table extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+
+                /* time interval between endTurn clicks edit*/
+                endTurn.setEnabled(false);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        endTurn.findViewById(R.id.bEndTurn).setEnabled(true);
+                    }
+                }, 2000);
+                /*
+                 */
+
                 if (p2Stand[0] == false)
                 {
-                    /* time interval between endTurn clicks */
-                    endTurn.setEnabled(false);
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            endTurn.findViewById(R.id.bEndTurn).setEnabled(true);
-                        }
-                    }, 2000);
-                    /*
-                     */
 
                     p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
                     p2Count = Integer.toString(p2Value[0]);
