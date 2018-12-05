@@ -2,7 +2,7 @@ package com.pazaak.prototype.pazaakprototype;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-public class gameAI
+public class GameAI
 {
     private int difficulty;
     public static final int EASY = 2;
@@ -12,7 +12,7 @@ public class gameAI
     public static boolean MINUS = true;
     private List<Card> aiDeckAndHand;
     private boolean plusOrMinus;
-    public gameAI(int aiDifficulty)
+    public GameAI(int aiDifficulty)
     {
         this.aiDeckAndHand = new ArrayList<Card>();
         this.difficulty = aiDifficulty;
