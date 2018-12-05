@@ -166,5 +166,12 @@ public class gameAI
     {
         return this.plusOrMinus;
     }
+    public Card testGetCard()
+    {
+        if(aiDeck.size() == 0)
+            return null;
+
+        return  aiDeck.remove(0);
+    }
 
 }
