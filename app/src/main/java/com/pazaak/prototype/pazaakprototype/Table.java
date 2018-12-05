@@ -224,23 +224,46 @@ public class Table extends AppCompatActivity
                 p1Stand[0] = true;
                 while (p1Stand[0] == true && p2Stand[0] == false)
                 {
-                    if (p2Value[0] < 16)
+                    p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+                    p2Count = Integer.toString(p2Value[0]);
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable()
                     {
-                        p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
-                        p2Count = Integer.toString(p2Value[0]);
-                        Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                p2CurrentScore.setText(p2Count);
+                        @Override
+                        public void run()
+                        {
+                            p2CurrentScore.setText(p2Count);
+                        }
+                    }, 1000);
+                    p2CardsPlayed[0]++;
+
+                    List<Card> copyOfMainDeck = new ArrayList<Card>(MainDeck);
+
+                    Card p2CardToPlay = aiForGame.getCard(p2Value[0], copyOfMainDeck);
+                    if (p2CardToPlay != null)
+                    {
+                        if (p2CardToPlay.getType() == Card.PM)
+                        {
+                            if (aiForGame.choosePlusOrMinus(p2Value[0], p2CardToPlay) == GameAI.PLUS)
+                            {
+                                p2Value[0] += p2CardToPlay.getValue();
                             }
-                        } , 1000);
+                            else
+                            {
+                                p2Value[0] += p2CardToPlay.getValue() * -1;
+                            }
+                        }
+                        else
+                        {
+                            p2Value[0] += p2CardToPlay.getValue();
+                        }
+                        board2Slots[p2CardsPlayed[0]].setImageResource(p2CardToPlay.getImage());
                         p2CardsPlayed[0]++;
                     }
-                    else
-                    {
-                        p2Stand[0] = true;
-                    }
+                    p2Stand[0] = aiForGame.shouldStand(p2Value[0], MainDeck);
+                    p2Count = Integer.toString(p2Value[0]);
+                    p2CurrentScore.setText(p2Count);
                 }
                 boolean shouldReset = checkifEnd(p1Stand[0], p2Stand[0], p1Value[0], p2Value[0]);
                 if (shouldReset == true)
