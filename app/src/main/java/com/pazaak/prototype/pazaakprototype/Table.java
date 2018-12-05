@@ -32,6 +32,7 @@ public class Table extends AppCompatActivity
     final int END_TURN = 0;
     final int STAND = 1;
     final int PLAY_CARD = 2;
+    private gameAI aiForGame;
     private final static int ROUNDS_NEEDED_TO_WIN = 3;
     private int roundsWon[];
     //Card[] MainDeck = new Card[40];
@@ -44,7 +45,7 @@ public class Table extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         this.MainDeck = new ArrayList<Card>();
-
+        this.aiForGame = new gameAI(setDiff());
         this.roundsWon = new int[2];
         this.roundsWon[0] = 0;
         this.roundsWon[1] = 0;
@@ -75,16 +76,6 @@ public class Table extends AppCompatActivity
             MainDeck.add(new Card(Card.MAIN, (i + 1) % 11));
         }
 
-//        for (int i = 0; i < board1.length; i++)
-//        {
-//            //board1[i] = MainDeck[generator.nextInt(40)];
-//
-//        }
-//
-//        for (int i = 0; i < board2.length; i++)
-//        {
-//            board2[i] = MainDeck[generator.nextInt(40)];
-//        }
 
         final ImageView board1Slots[] = {findViewById(R.id.p1Slot0), (findViewById(R.id.p1Slot1)), findViewById(R.id.p1Slot2), findViewById(R.id.p1Slot3), findViewById(R.id.p1Slot4),
                 findViewById(R.id.p1Slot5), findViewById(R.id.p1Slot6), findViewById(R.id.p1Slot7), findViewById(R.id.p1Slot8)};
@@ -118,26 +109,70 @@ public class Table extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                if (p2Value[0] < 16)
+                if (p2Stand[0] == false)
                 {
+
                     p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
                     p2Count = Integer.toString(p2Value[0]);
 
                     Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
+                    handler.postDelayed(new Runnable()
+                    {
                         @Override
-                        public void run() {
+                        public void run()
+                        {
                             p2CurrentScore.setText(p2Count);
                         }
-                    } , 1000);
+                    }, 1000);
                     p2CardsPlayed[0]++;
+
+                    List<Card> copyOfMainDeck = new ArrayList<Card>(MainDeck);
+
+                    Card p2CardToPlay = aiForGame.getCard(p2Value[0], copyOfMainDeck);
+                    if (p2CardToPlay != null)
+                    {
+                        if (p2CardToPlay.getType() == Card.PM)
+                        {
+                            if (aiForGame.choosePlusOrMinus(p2Value[0], p2CardToPlay) == gameAI.PLUS)
+                            {
+                                p2Value[0] += p2CardToPlay.getValue();
+                            }
+                            else
+                            {
+                                p2Value[0] += p2CardToPlay.getValue() * -1;
+                            }
+                        }
+                        board2Slots[p2CardsPlayed[0]].setImageResource(p2CardToPlay.getImage());
+                        p2CardsPlayed[0]++;
+                    }
+                    p2Stand[0] = aiForGame.shouldStand(p2Value[0], MainDeck);
                     yourTurn[0] = true;
                 }
                 else
                 {
-                    p2Stand[0] = true;
                     yourTurn[0] = true;
                 }
+
+//                if (p2Value[0] < 16)
+//                {
+//                    p2Value[0] = p2EndTurn(p2Value[0], p2CardsPlayed[0], board2Slots);
+//                    p2Count = Integer.toString(p2Value[0]);
+//
+//                    Handler handler = new Handler();
+//                    handler.postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            p2CurrentScore.setText(p2Count);
+//                        }
+//                    } , 1000);
+//                    p2CardsPlayed[0]++;
+//                    yourTurn[0] = true;
+//                }
+//                else
+//                {
+//                    p2Stand[0] = true;
+//                    yourTurn[0] = true;
+//                }
 
                 if (yourTurn[0] == true && p1Stand[0] == false)
                 {
@@ -676,5 +711,12 @@ public class Table extends AppCompatActivity
         }
 
         return handToReturn;
+    }
+
+    protected int setDiff()
+    {
+        Bundle extra = getIntent().getExtras();
+        int diff = extra.getInt("diff");
+        return diff;
     }
 }

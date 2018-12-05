@@ -1,4 +1,5 @@
 package com.pazaak.prototype.pazaakprototype;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 public class gameAI
@@ -13,6 +14,7 @@ public class gameAI
     private boolean plusOrMinus;
     public gameAI(int aiDifficulty)
     {
+        this.aiDeckAndHand = new ArrayList<Card>();
         this.difficulty = aiDifficulty;
         setAiDeck();
         trimDeck();
@@ -21,7 +23,8 @@ public class gameAI
     public boolean shouldStand(int aiScore, List<Card> mainDeck)
     {
         ///mainDeck.remove(0);
-        float average = getDeckAverage(mainDeck);
+        List<Card> mainDeckCopy = new ArrayList<Card>(mainDeck);
+        float average = getDeckAverage(mainDeckCopy);
         //if(average + aiScore <= 20)
             //return true;
 
@@ -74,11 +77,12 @@ public class gameAI
         Random handSelector = new Random(difficulty);
         while(aiDeckAndHand.size() >= 5)
         {
-            aiDeckAndHand.remove(handSelector.nextInt() % aiDeckAndHand.size());
+            aiDeckAndHand.remove(handSelector.nextInt(aiDeckAndHand.size()) % aiDeckAndHand.size());
         }
     }
     public Card getCard(int aiScore, List<Card> mainDeck)
     {
+        List<Card> copyOfMainDeck = new ArrayList<>(mainDeck);
         if(aiDeckAndHand.size() == 0) //no Cards in hand
             return null;
         //Card cardToPlay;
@@ -88,7 +92,7 @@ public class gameAI
             //cardToPlay = aiDeckAndHand.remove(cardToPlayID);
             return aiDeckAndHand.remove(cardToPlayID);
         }
-        cardToPlayID = getBestCard(aiScore, getDeckAverage(mainDeck));
+        cardToPlayID = getBestCard(aiScore, getDeckAverage(copyOfMainDeck));
         if(cardToPlayID >= 0)
         {
             //cardToPlay = aiDeckAndHandAndHand.remove(cardToPlayID);
