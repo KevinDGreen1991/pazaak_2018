@@ -79,6 +79,8 @@ public class gameAI
     }
     public Card getCard(int aiScore, List<Card> mainDeck)
     {
+        if(aiDeck.size() == 0)
+            return null;
         Card cardToPlay = null;
         int cardToPlayID = hitTwenty(aiScore);
         if(cardToPlayID >= 0)
