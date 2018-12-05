@@ -9,7 +9,7 @@ public class gameAI
     public static final int HARD = 0;
     public static boolean PLUS = false;
     public static boolean MINUS = true;
-    private List<Card> aiDeck;
+    private List<Card> aiDeckAndHand;
     private boolean plusOrMinus;
     public gameAI(int aiDifficulty)
     {
@@ -54,16 +54,16 @@ public class gameAI
     }
     private void setMediumDeck()
     {
-        this.aiDeck.add(new Card(Card.MINUS, 1));
-        this.aiDeck.add(new Card(Card.MINUS, 2));
-        this.aiDeck.add(new Card(Card.MINUS, 4));
-        this.aiDeck.add(new Card(Card.MINUS, 5));
-        this.aiDeck.add(new Card(Card.MINUS, 6));
-        this.aiDeck.add(new Card(Card.PM, 1));
-        this.aiDeck.add(new Card(Card.PM, 4));
-        this.aiDeck.add(new Card(Card.PM, 3));
-        this.aiDeck.add(new Card(Card.PM, 6));
-        this.aiDeck.add(new Card(Card.PLUS, 4));
+        this.aiDeckAndHand.add(new Card(Card.MINUS, 1));
+        this.aiDeckAndHand.add(new Card(Card.MINUS, 2));
+        this.aiDeckAndHand.add(new Card(Card.MINUS, 4));
+        this.aiDeckAndHand.add(new Card(Card.MINUS, 5));
+        this.aiDeckAndHand.add(new Card(Card.MINUS, 6));
+        this.aiDeckAndHand.add(new Card(Card.PM, 1));
+        this.aiDeckAndHand.add(new Card(Card.PM, 4));
+        this.aiDeckAndHand.add(new Card(Card.PM, 3));
+        this.aiDeckAndHand.add(new Card(Card.PM, 6));
+        this.aiDeckAndHand.add(new Card(Card.PLUS, 4));
     }
     private void setHardDeck()
     {
@@ -72,47 +72,47 @@ public class gameAI
     private void trimDeck()
     {
         Random handSelector = new Random(difficulty);
-        while(aiDeck.size() >= 5)
+        while(aiDeckAndHand.size() >= 5)
         {
-            aiDeck.remove(handSelector.nextInt() % aiDeck.size());
+            aiDeckAndHand.remove(handSelector.nextInt() % aiDeckAndHand.size());
         }
     }
     public Card getCard(int aiScore, List<Card> mainDeck)
     {
-        if(aiDeck.size() == 0)
+        if(aiDeckAndHand.size() == 0) //no Cards in hand
             return null;
-        Card cardToPlay = null;
+        //Card cardToPlay;
         int cardToPlayID = hitTwenty(aiScore);
         if(cardToPlayID >= 0)
         {
-            cardToPlay = aiDeck.remove(cardToPlayID);
-            return cardToPlay;
+            //cardToPlay = aiDeckAndHand.remove(cardToPlayID);
+            return aiDeckAndHand.remove(cardToPlayID);
         }
         cardToPlayID = getBestCard(aiScore, getDeckAverage(mainDeck));
         if(cardToPlayID >= 0)
         {
-            cardToPlay = aiDeck.remove(cardToPlayID);
-            return cardToPlay;
+            //cardToPlay = aiDeckAndHandAndHand.remove(cardToPlayID);
+            return aiDeckAndHand.remove(cardToPlayID);
         }
-        return cardToPlay;
+        return null; //No card to play was found.
     }
     private int hitTwenty(int score)
     {
-        for(int i = 0; i < aiDeck.size(); i++)
+        for(int i = 0; i < aiDeckAndHand.size(); i++)
         {
-            if(aiDeck.get(i).getType() == Card.PM)
+            if(aiDeckAndHand.get(i).getType() == Card.PM)
             {
-                if(aiDeck.get(i).getValue() + score == 20) {
+                if(aiDeckAndHand.get(i).getValue() + score == 20) {
                 plusOrMinus = PLUS;
                 return i;
                 }
-                else if(aiDeck.get(i).getValue() - score == 20)
+                else if(aiDeckAndHand.get(i).getValue() - score == 20)
                 {
                     plusOrMinus = MINUS;
                     return i;
                 }
             }
-            else if(aiDeck.get(i).getValue() + score == 20)
+            else if(aiDeckAndHand.get(i).getValue() + score == 20)
             {
                 return i;
             }
@@ -122,28 +122,28 @@ public class gameAI
     private int getBestCard(int score, float deckAverage)
     {
         //int cardID = -1;
-        for(int cardID = 0; cardID < aiDeck.size(); cardID++)
+        for(int cardID = 0; cardID < aiDeckAndHand.size(); cardID++)
         {
-            if(aiDeck.get(cardID).getType() == Card.MINUS)
+            if(aiDeckAndHand.get(cardID).getType() == Card.MINUS)
             {
-                if((score > 20) && (aiDeck.get(cardID).getValue() + score <= 20))
+                if((score > 20) && (aiDeckAndHand.get(cardID).getValue() + score <= 20))
                     return cardID;
-                else if(score + (int)deckAverage + aiDeck.get(cardID).getValue() == 20)
+                else if(score + (int)deckAverage + aiDeckAndHand.get(cardID).getValue() == 20)
                     return cardID;
             }
-            else if(aiDeck.get(cardID).getType() == Card.PM)
+            else if(aiDeckAndHand.get(cardID).getType() == Card.PM)
             {
-                if((score > 20) && (-aiDeck.get(cardID).getValue() + score <= 20))
+                if((score > 20) && ((-aiDeckAndHand.get(cardID).getValue() + score) <= 20))
                 {
                     this.plusOrMinus = MINUS;
                     return cardID;
                 }
-                else if(score + (int)deckAverage + aiDeck.get(cardID).getValue() == 20)
+                else if((score + (int)deckAverage + aiDeckAndHand.get(cardID).getValue()) == 20)
                 {
                     this.plusOrMinus = PLUS;
                     return cardID;
                 }
-                else if(score + (int)deckAverage + -aiDeck.get(cardID).getValue() == 20)
+                else if((score + (int)deckAverage - aiDeckAndHand.get(cardID).getValue()) == 20)
                 {
                     this.plusOrMinus = MINUS;
                     return cardID;
@@ -152,7 +152,7 @@ public class gameAI
             else
             {
                 int scorePlusAverage = score + (int)deckAverage;
-                int scorePlusCard = score + aiDeck.get(cardID).getValue();
+                int scorePlusCard = score + aiDeckAndHand.get(cardID).getValue();
                 if(scorePlusAverage < scorePlusCard && scorePlusCard <= 20)
                     return cardID;
                 else if(scorePlusCard + (int)deckAverage == 20)
@@ -168,10 +168,10 @@ public class gameAI
     }
     public Card testGetCard()
     {
-        if(aiDeck.size() == 0)
+        if(aiDeckAndHand.size() == 0)
             return null;
 
-        return  aiDeck.remove(0);
+        return  aiDeckAndHand.remove(0);
     }
 
 }
