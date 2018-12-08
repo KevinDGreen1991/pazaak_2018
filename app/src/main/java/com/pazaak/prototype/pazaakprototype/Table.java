@@ -265,6 +265,8 @@ public class Table extends AppCompatActivity
                     }
                     p2Stand[0] = aiForGame.shouldStand(p2Value[0], MainDeck);
                     p2Count = Integer.toString(p2Value[0]);
+
+
                     p2CurrentScore.setText(p2Count);
                 }
                 boolean shouldReset = checkifEnd(p1Stand[0], p2Stand[0], p1Value[0], p2Value[0]);

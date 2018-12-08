@@ -37,7 +37,11 @@ public class MainMenu extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent iGameMenu = new Intent(MainMenu.this, GameMenu.class);
+
+                /* Goes straight to AI difficulty
+                ** No multiplayer options
+                */
+                Intent iGameMenu = new Intent(MainMenu.this, SetAIDifficulty.class);
                 iGameMenu.putExtra("cards", cards);
                 MainMenu.this.startActivity(iGameMenu);
             }

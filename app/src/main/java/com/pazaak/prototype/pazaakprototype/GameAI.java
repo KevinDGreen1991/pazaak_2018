@@ -53,7 +53,17 @@ public class GameAI
     }
     private void setEasyDeck()
     {
-        setMediumDeck();
+        this.aiDeckAndHand.add(new Card(Card.PLUS, 1));
+        this.aiDeckAndHand.add(new Card(Card.PLUS, 2));
+        this.aiDeckAndHand.add(new Card(Card.PLUS, 4));
+        this.aiDeckAndHand.add(new Card(Card.PLUS, 5));
+        this.aiDeckAndHand.add(new Card(Card.PLUS, 6));
+        this.aiDeckAndHand.add(new Card(Card.PLUS, 3));
+        this.aiDeckAndHand.add(new Card(Card.MINUS, 4));
+        this.aiDeckAndHand.add(new Card(Card.MINUS, 3));
+        this.aiDeckAndHand.add(new Card(Card.MINUS, 2));
+        this.aiDeckAndHand.add(new Card(Card.MINUS, 1));
+        //setMediumDeck();
     }
     private void setMediumDeck()
     {
@@ -70,7 +80,11 @@ public class GameAI
     }
     private void setHardDeck()
     {
-        setMediumDeck();
+        this.aiDeckAndHand.add(new Card(Card.PM, 1));
+        this.aiDeckAndHand.add(new Card(Card.PM, 6));
+        this.aiDeckAndHand.add(new Card(Card.PM, 4));
+        this.aiDeckAndHand.add(new Card(Card.PM, 5));
+        //setMediumDeck();
     }
     private void trimDeck()
     {
