@@ -140,7 +140,7 @@ public class Table extends AppCompatActivity
 
                     List<Card> copyOfMainDeck = new ArrayList<Card>(MainDeck);
 
-                    Card p2CardToPlay = aiForGame.getCard(p2Value[0], copyOfMainDeck);
+                    final Card p2CardToPlay = aiForGame.getCard(p2Value[0], copyOfMainDeck);
                     if (p2CardToPlay != null)
                     {
                         if (p2CardToPlay.getType() == Card.PM)
@@ -158,12 +158,26 @@ public class Table extends AppCompatActivity
                         {
                             p2Value[0] += p2CardToPlay.getValue();
                         }
-                        board2Slots[p2CardsPlayed[0]].setImageResource(p2CardToPlay.getImage());
-                        p2CardsPlayed[0]++;
+
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run()
+                            {
+                                board2Slots[p2CardsPlayed[0]].setImageResource(p2CardToPlay.getImage());
+                                p2CardsPlayed[0]++;
+                            }
+                        }, 1000);
                     }
                     p2Stand[0] = aiForGame.shouldStand(p2Value[0], MainDeck);
                     p2Count = Integer.toString(p2Value[0]);
-                    p2CurrentScore.setText(p2Count);
+
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            p2CurrentScore.setText(p2Count);
+                        }
+                    }, 1000);
+
                     yourTurn[0] = true;
                 }
                 else
@@ -236,13 +250,15 @@ public class Table extends AppCompatActivity
                         public void run()
                         {
                             p2CurrentScore.setText(p2Count);
+
                         }
                     }, 1000);
+
                     p2CardsPlayed[0]++;
 
                     List<Card> copyOfMainDeck = new ArrayList<Card>(MainDeck);
 
-                    Card p2CardToPlay = aiForGame.getCard(p2Value[0], copyOfMainDeck);
+                    final Card p2CardToPlay = aiForGame.getCard(p2Value[0], copyOfMainDeck);
                     if (p2CardToPlay != null)
                     {
                         if (p2CardToPlay.getType() == Card.PM)
@@ -260,14 +276,32 @@ public class Table extends AppCompatActivity
                         {
                             p2Value[0] += p2CardToPlay.getValue();
                         }
-                        board2Slots[p2CardsPlayed[0]].setImageResource(p2CardToPlay.getImage());
-                        p2CardsPlayed[0]++;
+
+
+                        handler.postDelayed(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                board2Slots[p2CardsPlayed[0]].setImageResource(p2CardToPlay.getImage());
+                                p2CardsPlayed[0]++;
+                            }
+                        }, 1000);
+
+
+
                     }
                     p2Stand[0] = aiForGame.shouldStand(p2Value[0], MainDeck);
                     p2Count = Integer.toString(p2Value[0]);
 
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            p2CurrentScore.setText(p2Count);
+                        }
+                    }, 1000);
 
-                    p2CurrentScore.setText(p2Count);
+
                 }
                 boolean shouldReset = checkifEnd(p1Stand[0], p2Stand[0], p1Value[0], p2Value[0]);
                 if (shouldReset == true)
