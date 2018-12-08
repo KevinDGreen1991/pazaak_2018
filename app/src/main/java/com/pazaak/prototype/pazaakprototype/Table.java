@@ -529,7 +529,7 @@ public class Table extends AppCompatActivity
             //PlusMinusPrompt myPrompt = new PlusMinusPrompt();
             //myPrompt.shower();
             int type;
-            type = PMType();
+            type = PMType(cardToPlay.getValue());
             //type = myPrompt.returnType();
             System.out.println("Card Value Type" + type);
             if (type == Card.PLUS)
@@ -553,32 +553,37 @@ public class Table extends AppCompatActivity
     {
         throw new RuntimeException();
     }
-    protected int PMType()
+    protected int PMType(int cardToPlayValue)
     {
         final int val[] = {0};
-        AlertDialog.Builder alterDialogBuilder = new AlertDialog.Builder(this);
-        alterDialogBuilder.setMessage(R.string.pmPrompt);
-        alterDialogBuilder.setPositiveButton(R.string.plusPrompt, new DialogInterface.OnClickListener()
-        {
+        final AlertDialog dialog = new AlertDialog.Builder(this)
+                .setView(getLayoutInflater().inflate(R.layout.activity_pmpopup, null))
+                .create();
+        dialog.show();
+        ImageButton plus = dialog.findViewById(R.id.plusSign);
+        ImageButton minus = dialog.findViewById(R.id.minusSign);
+
+        plus.setImageResource(new Card(Card.PLUS, cardToPlayValue).getImage());
+        minus.setImageResource(new Card(Card.MINUS, cardToPlayValue).getImage());
+
+
+        plus.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
+            public void onClick(View v) {
                 val[0] = Card.PLUS;
+                dialog.dismiss();
                 handleMessage(null);
             }
         });
-        alterDialogBuilder.setNegativeButton(R.string.minusPrompt, new DialogInterface.OnClickListener()
-        {
+        minus.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i)
-            {
+            public void onClick(View v) {
                 val[0] = Card.MINUS;
+                dialog.dismiss();
                 handleMessage(null);
             }
         });
-        AlertDialog myDiag;
-        myDiag = alterDialogBuilder.create();
-        myDiag.show();
+
         try
         {
             Looper.loop();
